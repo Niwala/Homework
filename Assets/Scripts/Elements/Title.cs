@@ -2,8 +2,9 @@ using UnityEngine.UIElements;
 
 namespace SamsBackpack.Homework
 {
+
     [UxmlElement]
-    public partial class Title : TextElement
+    public partial class Title : TextElement, ICommentable
     {
         [UxmlAttribute]
         public int Type 

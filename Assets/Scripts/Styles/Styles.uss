@@ -1,6 +1,8 @@
 .homework-outliner {
     background-color: var(--unity-colors-default-background);
     min-width: 200px;
+    border-top-color: var(--unity-colors-window-border);
+    border-top-width: 1px;
 }
 
 .homework-outliner-item {
@@ -8,6 +10,17 @@
 
 .homework-outliner-item-label {
     margin-top: 2px;
+    border-top-width: 2px;
+}
+
+.homework-outliner-item-label:checked {
+    color: rgb(144, 177, 233);
+    -unity-font-style: bold;
+}
+
+.homework-content {
+    border-top-color: var(--unity-colors-window-border);
+    border-top-width: 1px;
 }
 
 .homework-shader-element {
@@ -87,6 +100,16 @@
     padding-right: 10px;
     padding-bottom: 4px;
     padding-left: 10px;
+    flex-direction: row;
+}
+
+.homework-callout-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 5px;
+    margin-top: 3px;
 }
 
 .homework-text {
@@ -154,4 +177,168 @@
     align-self: flex-start;
     aspect-ratio: 0.5;
     flex-shrink: 1;
+}
+
+.homework-comment-overlay {
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(154, 46, 46, 0.31);
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.homework-comment-overlay:active {
+    border-left-color: rgb(0, 138, 255);
+    border-right-color: rgb(0, 138, 255);
+    border-top-color: rgb(0, 138, 255);
+    border-bottom-color: rgb(0, 138, 255);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: rgba(0, 138, 255, 0.25);
+    opacity: 1;
+}
+
+.homework-comment-popup {
+    background-color: var(--unity-colors-app_toolbar-background);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    min-height: 120px;
+    display: none;
+}
+
+.homework-comment-anchor {
+    position: absolute;
+    top: 50%;
+    right: -24px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--unity-colors-input_field-background);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 5px;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    opacity: 0.7;
+}
+
+.homework-comment-anchor:hover {
+    background-color: var(--unity-colors-button-background-hover_pressed);
+    opacity: 1;
+}
+
+.homework-outliner-tree-view {
+    background-color: var(--unity-colors-input_field-background);
+}
+
+.homework-warmup-counter {
+    padding-top: 5px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: var(--unity-colors-input_field-background);
+    align-items: center;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-top-color: var(--unity-colors-app_toolbar_button-border);
+    border-right-color: var(--unity-colors-app_toolbar_button-border);
+    border-bottom-color: var(--unity-colors-app_toolbar_button-border);
+    border-left-color: var(--unity-colors-app_toolbar_button-border);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 500px;
+}
+
+.homework-warmup-counter-label {
+    font-size: 98px;
+    opacity: 0.34;
+    -unity-font-definition: url("project://database/Assets/UI%20Toolkit/Roboto-Bold.ttf?fileID=12800000&guid=c22bd1c85c786b947b1d8e91396467be&type=3#Roboto-Bold");
+    letter-spacing: 4px;
+    aspect-ratio: 5;
+    -unity-text-align: upper-center;
+    -unity-font-style: normal;
+}
+
+.homework-warmup-counter-label:checked {
+    opacity: 1;
+}
+
+.homework-warmup-counter-btn {
+    height: 40px;
+    width: 150px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: 32px;
+}
+
+.homework-warmup-counter-btn:hover {
+    background-color: rgb(202, 118, 77);
+}
+
+.homework-warmup-counter-btn:active {
+    background-color: rgb(113, 59, 33);
+}
+
+.homework-warmup-shader-area {
+    background-color: rgb(24, 24, 24);
+    height: 10px;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 20px;
+    transition-property: height;
+    transition-duration: 1s;
+    transition-timing-function: ease-out-circ;
+    background-size: 100% 10%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    overflow: hidden;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+
+.homework-warmup-shader-area:checked {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-elastic;
+    transition-property: height;
+    height: 300px;
 }

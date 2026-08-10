@@ -4,8 +4,8 @@
         <SamsBackpack.Homework.Title text="Si vous avez terminé ce chapitre" type="1" style="margin-top: 66px;"/>
         <SamsBackpack.Homework.Text text="1. Vous pouvez indiquer votre nom et prénom puis exporter le contenu du chapitre avec le bouton Export ci-dessous.&#10;&#10;2. Ensuite, il vous faut upload l&apos;export dans le &lt;a href=https://heajbe.sharepoint.com/:f:/r/sites/ICNRemises26-27/Documents%20partages/General/TBJEUV009901%20Bac%20JV/B2/TCAA0001-1%20Tech%20art/TCAA0001-A-a/Travail%20Journalier?d=w0addb7337d694afb89db5f01fefa8d0c&amp;csf=1&amp;web=1&amp;e=46rClV&quot;&gt;dossier de travail journalier sharepoint&lt;/a&gt;."/>
         <SamsBackpack.Homework.ChapterControls style="flex-grow: 1; flex-shrink: 0; margin-top: 10px; max-width: 600px;"/>
-        <SamsBackpack.Homework.Callout style="margin-top: 20px; opacity: 1;">
-            <SamsBackpack.Homework.Text text="Cet export contient les shaders édités du chapitre, vos potentiels commentaires ainsi que des informations permettant de vous identifier." style="opacity: 0.64; font-size: 12px;"/>
+        <SamsBackpack.Homework.Callout icon="project://database/Assets/Scripts/Database/Editor/Icons/info-circle-outline-128x128.png?fileID=2800000&amp;guid=5bba32ed4b564604a80cd57e52305ab1&amp;type=3#info-circle-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="margin-top: 20px; opacity: 1;">
+            <SamsBackpack.Homework.Text text="Un export contient les shaders édités du chapitre, vos potentiels commentaires ainsi que des informations permettant de vous identifier." style="opacity: 0.64; font-size: 12px;"/>
         </SamsBackpack.Homework.Callout>
     </SamsBackpack.Homework.ArticleElement>
 </ui:UXML>

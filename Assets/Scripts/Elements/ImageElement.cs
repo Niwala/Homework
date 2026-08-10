@@ -3,8 +3,9 @@ using UnityEngine.UIElements;
 
 namespace SamsBackpack.Homework
 {
+
     [UxmlElement]
-    public partial class ImageElement : Image
+    public partial class ImageElement : Image, ICommentable
     {
         [UxmlAttribute]
         public float Size

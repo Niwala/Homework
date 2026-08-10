@@ -8,13 +8,13 @@ using UnityEngine.UIElements;
 namespace SamsBackpack.Homework
 {
     [UxmlElement]
-    public partial class ShaderElement : VisualElement
+    public partial class ShaderElement : VisualElement, ICommentable
     {
 
         [UxmlAttribute]
         public Shader shader { get; set; }
 
-        private Material material;
+        public Material material { get; private set; }
         private bool enable;
 
         public ShaderElement()

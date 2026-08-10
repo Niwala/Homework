@@ -76,10 +76,13 @@ namespace SamsBackpack.Homework
             }
 
             //Get sub directories
-            foreach (var dir in Directory.GetDirectories(directory))
+            if (!(firstEntry is Warmup))
             {
-                content.Add(GetEntries(dir, ref id));
-                id++;
+                foreach (var dir in Directory.GetDirectories(directory))
+                {
+                    content.Add(GetEntries(dir, ref id));
+                    id++;
+                }
             }
 
             //Chapter decorator

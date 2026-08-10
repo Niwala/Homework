@@ -37,8 +37,6 @@ namespace SamsBackpack.Homework
             //Content
             content = splitView.Add<HomeworkContent>();
 
-
-
             //Events
             outliner.onSelectEntry += content.Show;
         }

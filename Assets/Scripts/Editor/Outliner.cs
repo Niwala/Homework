@@ -23,7 +23,11 @@ namespace SamsBackpack.Homework
             this.name = "outliner";
             this.AddToClassList("homework-outliner");
 
-            Button rebuildBtn = this.Add<Button>();
+            //Toolbar
+            Toolbar toolbar = this.Add<Toolbar>();
+
+            //Rebuild button
+            ToolbarButton rebuildBtn = toolbar.Add<ToolbarButton>();
             rebuildBtn.text = "Rebuild";
             rebuildBtn.clicked += Rebuild;
 
@@ -35,10 +39,8 @@ namespace SamsBackpack.Homework
             treeView.bindItem += (VisualElement e, int index) => { ((OutlinerItem)e).BindProperty(treeView.GetItemDataForIndex<IOutlinerEntry>(index)); };
             treeView.selectionChanged += OnSelectionChanged;
 
-
             treeView.Rebuild();
-
-            
+            treeView.AddToClassList("homework-outliner-tree-view");
         }
 
         private void OnSelectionChanged(IEnumerable<object> obj)
@@ -77,13 +79,8 @@ namespace SamsBackpack.Homework
 
         public void BindProperty(IOutlinerEntry entry)
         {
-            //SerializedProperty prop = listProperty.GetArrayElementAtIndex(index);
-            //SerializedObject obj = new SerializedObject(prop.objectReferenceValue);
-
-
             label.text = entry.Title;
+            label.SetCheckedPseudoState(entry is Page);
         }
-
     }
-
 }
