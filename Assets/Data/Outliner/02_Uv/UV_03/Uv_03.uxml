@@ -1,0 +1,28 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <SamsBackpack.Homework.ArticleElement>
+        <SamsBackpack.Homework.Title text="Négatif &amp; Inverse"/>
+        <SamsBackpack.Homework.Title text="Espace normalisé" type="1"/>
+        <SamsBackpack.Homework.Text text="En shader nous travaillons très souvent dans un espace normalisé. Cela signifie simplement qu&apos;on décide d&apos;un seuil minimum et maximum et que les valeurs avec lesquelles on travail vont se trouver entre ces seuils.&#10;&#10;Par exemple, pour un vecteur il est attendu d&apos;avoir des valeurs entre -1.0 et 1.0.&#10;&#10;Pour les couleurs, les Uvs et la grande majorité des opérations que nous ferons en shader, il est convenu de travailler entre 0.0 et 1.0. C&apos;est donc pour cela que nous Uvs se dessinent aussi bien sous forme de couleur."/>
+        <SamsBackpack.Homework.Callout style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
+            <SamsBackpack.Homework.Text text="Le node &quot;Normalize&quot; a bien un rapport avec tout ceci mais c&apos;est pour travailler sur des vecteurs directionnels, on garde cela pour plus tard."/>
+        </SamsBackpack.Homework.Callout>
+        <SamsBackpack.Homework.Title text="Le négatif et l&apos;inverse" type="1"/>
+        <SamsBackpack.Homework.Text text="Sur nos premiers shader, il n&apos;est pas rare de confondre le negatif et l&apos;inverse. Cependant ces deux opérations ne font pas du tout la même chose."/>
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement style="width: 50%; border-right-color: rgba(0, 0, 0, 0.48); border-right-width: 1px; margin-right: 10px;">
+                <SamsBackpack.Homework.Title text="Négatif" type="2" style="-unity-text-align: upper-center;"/>
+                <SamsBackpack.Homework.Text text="Utiliser le node Negate revient à mettre un &quot;-&quot; devant notre nombre."/>
+                <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02_Uv/UV_03/Unity_FGN9cug0Ak.png?fileID=2800000&amp;guid=7e5716749e98183448dbc628f9387701&amp;type=3#Unity_FGN9cug0Ak" size="0.38" style="align-self: center;"/>
+                <SamsBackpack.Homework.Text text="&#10;Le négatif de 0.6 c&apos;est -0.6 par exemple. On sort donc complètement de notre range 0.0 - 1.0 lorsqu&apos;on travaille avec des couleurs ou des Uvs."/>
+            </ui:VisualElement>
+            <ui:VisualElement style="width: 50%; padding-left: 10px;">
+                <SamsBackpack.Homework.Title text="Inverse" type="2" style="-unity-text-align: upper-center;"/>
+                <SamsBackpack.Homework.Text text="Utiliser le node OneMinus revient à mettre un &quot;1.0 - &quot; devant notre nombre."/>
+                <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02_Uv/UV_03/Unity_NNfKW5Bb28.png?fileID=2800000&amp;guid=1ec7f445360982b429825d4d30ac154d&amp;type=3#Unity_NNfKW5Bb28" size="0.35" style="align-self: center;"/>
+                <SamsBackpack.Homework.Text text="&#10;Lorsque nous somme dans notre espace normalisé 0.0 - 1.0. Utiliser l&apos;opération OneMinus permet d&apos;inverser notre nombre dans son range.&#10;&#10;Par exemple, le OneMinus de 0.6 c&apos;est 0.4&#10;&lt;i&gt;1.0 - 0.6 = 0.4&lt;/i&gt;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <SamsBackpack.Homework.Text text="Si vous avez un peu de mal à saisir tout cela, essayez de penser en pourcentage :&#10;• Le négatif de 60% c&apos;est -60%&#10;• L&apos;inverse de 60% c&apos;est 40% &lt;i&gt;(C&apos;est la partie manquante pour arriver à 100%)&lt;/i&gt;"/>
+    </SamsBackpack.Homework.ArticleElement>
+</ui:UXML>

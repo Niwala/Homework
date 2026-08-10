@@ -1,0 +1,11 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <SamsBackpack.Homework.ArticleElement>
+        <SamsBackpack.Homework.Title text="Uv"/>
+        <SamsBackpack.Homework.Title text="Contexte" type="1"/>
+        <SamsBackpack.Homework.Text text="Dans ces exercices les Uvs seront toujours dans une tuile complète de 0.0 à 1.0 comme ceci :"/>
+        <SamsBackpack.Homework.ShaderElement shader="project://database/Assets/Data/Outliner/01_Uv/UV_01_Example.shadergraph?fileID=-6465566751694194690&amp;guid=5bb581049623ffa4f89dcc40311dc63d&amp;type=3#Shader Graphs/UV_01_Example" style="width: 200px; height: 200px;"/>
+        <SamsBackpack.Homework.Title text="Les couleur des données" type="1"/>
+        <SamsBackpack.Homework.Text text="Lorsque nous faisons des shaders, il y&apos;a cette particularité qui est que la plupart de nos données peuvent être affichées en tant que couleur. &#10;&#10;C&apos;est exactement le cas ici : Les données que nous voyons ne sont pas juste de la couleur, ce sont avant tout des coordonnées.&#10;&#10;• Si le point en bas à gauche est noir c&apos;est parce-que il est aux coordonnées (x : 0.0, y : 0.0). &#10;Cela est transformé en (&lt;color=red&gt;r : 0.0&lt;/color&gt;, &lt;color=green&gt;g : 0.0&lt;/color&gt;).&#10;&#10;• Le point en bas à droite est rouge car il est en (x : 1.0, y : 0.0)&#10;&#10;• Celui en haut à droite car c&apos;est une combinaison du vert et du rouge (x : 1.0, y : 1.0) "/>
+    </SamsBackpack.Homework.ArticleElement>
+</ui:UXML>

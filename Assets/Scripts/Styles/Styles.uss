@@ -1,0 +1,157 @@
+.homework-outliner {
+    background-color: var(--unity-colors-default-background);
+    min-width: 200px;
+}
+
+.homework-outliner-item {
+}
+
+.homework-outliner-item-label {
+    margin-top: 2px;
+}
+
+.homework-shader-element {
+    width: 200px;
+    height: 200px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: rgb(22, 22, 22);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-left-color: rgb(66, 139, 255);
+    border-right-color: rgb(66, 139, 255);
+    border-top-color: rgb(66, 139, 255);
+    border-bottom-color: rgb(66, 139, 255);
+    transition-duration: 3s;
+}
+
+.homework-shader-element:checked {
+    transition-duration: 3s;
+    border-left-color: rgb(255, 86, 45);
+    border-right-color: rgb(255, 86, 45);
+    border-top-color: rgb(255, 86, 45);
+    border-bottom-color: rgb(255, 86, 45);
+}
+
+.homework-article {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    flex-shrink: 0;
+    min-width: 300px;
+}
+
+.homework-title-0 {
+    font-size: 28px;
+    color: rgb(85, 131, 195);
+    flex-shrink: 0;
+    margin-top: 20px;
+}
+
+.homework-title-1 {
+    font-size: 24px;
+    color: rgb(183, 183, 183);
+    flex-shrink: 0;
+    margin-top: 20px;
+}
+
+.homework-title-2 {
+    font-size: 16px;
+    color: rgb(183, 183, 183);
+    flex-shrink: 0;
+    margin-top: 16px;
+}
+
+.homework-callout {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    min-height: 20px;
+    flex-shrink: 0;
+    background-color: var(--unity-colors-input_field-background);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 6px;
+    padding-right: 10px;
+    padding-bottom: 4px;
+    padding-left: 10px;
+}
+
+.homework-text {
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    margin-bottom: 10px;
+}
+
+.homework-article-area {
+    min-width: 300px;
+}
+
+.homework-shader-area {
+    min-width: 400px;
+}
+
+.homework-shader-exercice {
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-top-color: var(--unity-colors-button-border);
+    border-right-color: var(--unity-colors-button-border);
+    border-bottom-color: var(--unity-colors-button-border);
+    border-left-color: var(--unity-colors-button-border);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.homework-shader-exercice-btn {
+    flex-grow: 0;
+    align-self: center;
+}
+
+.homework-chapter-fields {
+    flex-grow: 1;
+    min-width: 200px;
+    flex-shrink: 1;
+}
+
+.homework-chapter-controls {
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: flex-end;
+    min-width: 60px;
+    justify-content: flex-end;
+}
+
+.homework-chapter-controls-btn {
+    height: 24px;
+}
+
+.homework-image {
+    align-self: flex-start;
+    aspect-ratio: 0.5;
+    flex-shrink: 1;
+}
