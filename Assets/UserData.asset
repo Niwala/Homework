@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69eba4741f866be4b8f43551007fe9d5, type: 3}
+  m_Name: UserData
+  m_EditorClassIdentifier: Homework::SamsBackpack.Homework.UserData
+  metadata:
+    timeStamp: 20-08-26 17:15:33
+    metadata:
+    - name: Homework
+      comment: 
+      status: 2
+      limitedTime: 
+    - name: Introduction
+      comment: 
+      status: 2
+      limitedTime: 
+    - name: Uv
+      comment: 
+      status: 3
+      limitedTime: 
+    - name: Warmup
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: Distances Remake
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: FlowMap
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: Trigonometry
+      comment: 
+      status: 0
+      limitedTime: 

@@ -31,6 +31,16 @@ namespace SamsBackpack.Homework
             rebuildBtn.text = "Rebuild";
             rebuildBtn.clicked += Rebuild;
 
+            //Import button
+            ToolbarButton importBtn = toolbar.Add<ToolbarButton>();
+            importBtn.text = "Import";
+            importBtn.clicked += Import;
+
+            //Export button
+            ToolbarButton exportBtn = toolbar.Add<ToolbarButton>();
+            exportBtn.text = "Export";
+            exportBtn.clicked += Export;
+
             entries = Database.Resources.outlinerData.BuildEntries();
 
             treeView = this.Add<TreeView>();
@@ -61,9 +71,21 @@ namespace SamsBackpack.Homework
 
         private void Rebuild()
         {
+
+
             entries = Database.Resources.outlinerData.BuildEntries();
             treeView.SetRootItems(entries);
             treeView.Rebuild();
+        }
+
+        private void Import()
+        {
+            Database.Resources.outlinerData.ImportMetaData();
+        }
+
+        private void Export()
+        {
+            Database.Resources.outlinerData.ExportMetaData();
         }
     }
 

@@ -1,6 +1,8 @@
+using System;
 using System.Security.Cryptography;
 
 using UnityEditor;
+using UnityEditor.Toolbars;
 using UnityEditor.UIElements;
 
 using UnityEngine;
@@ -15,6 +17,7 @@ namespace SamsBackpack.Homework
         private VisualElement commentOverlay;
         private VisualElement currentOverlayedElement;
         private ToolbarToggle addArticleComment;
+        private ToolbarMenu statusMenu;
         public CommentPopup commentPopup;
         private bool addCommentMode;
 
@@ -30,6 +33,9 @@ namespace SamsBackpack.Homework
             addArticleComment.text = "Add comment";
             addArticleComment.RegisterValueChangedCallback((ChangeEvent<bool> e) => { addCommentMode = e.newValue; });
 
+            //Status
+            statusMenu = articleToolbar.Add<ToolbarMenu>();
+            SetupStatusMenu(entry);
 
             if (entry is Warmup warmup)
             {
@@ -164,5 +170,46 @@ namespace SamsBackpack.Homework
             commentOverlay.SetActivePseudoState(false);
         }
 
+        public void SetupStatusMenu(IOutlinerEntry entry)
+        {
+            MetaData metadata = OutlinerData.GetMetaData(entry);
+            string[] names = Enum.GetNames(typeof(Status));
+            statusMenu.text = metadata.status.ToString();
+
+            statusMenu.menu.ClearItems();
+            for (int i = 0; i < names.Length; i++)
+            {
+                Status s = (Status)i;
+                bool enable = s == metadata.status;
+                statusMenu.menu.AppendAction(names[i], ChangeMenuStatus, GetStatus, new MenuInfo(enable, s, metadata));
+            }
+        }
+
+        private void ChangeMenuStatus(DropdownMenuAction a)
+        {
+            MenuInfo info = (MenuInfo) a.userData;
+            info.metadata.status = info.status;
+            statusMenu.text = info.status.ToString();
+        }
+
+        private DropdownMenuAction.Status GetStatus(DropdownMenuAction a)
+        {
+            MenuInfo info = (MenuInfo)a.userData;
+            return info.enable ? DropdownMenuAction.Status.Checked : DropdownMenuAction.Status.Normal;
+        }
+
+        struct MenuInfo
+        {
+            public bool enable;
+            public Status status;
+            public MetaData metadata;
+
+            public MenuInfo(bool enable, Status status, MetaData metadata)
+            {
+                this.enable = enable;
+                this.status = status;
+                this.metadata = metadata;
+            }
+        }
     }
 }

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 
 using UnityEditor;
 
@@ -11,11 +13,13 @@ using UnityEngine.UIElements;
 
 namespace SamsBackpack.Homework
 {
+
     public class OutlinerData : ScriptableObject
     {
         public VisualTreeAsset chapterExport;
         public string userName;
         public string userSurname;
+        public MetaDataPack metaDataPack;
 
         public List<TreeViewItemData<IOutlinerEntry>> BuildEntries()
         {
@@ -94,6 +98,67 @@ namespace SamsBackpack.Homework
             return new TreeViewItemData<IOutlinerEntry>(id, firstEntry, content);
         }
 
+        private MetaDataPack BuildMetaDataFromAssets()
+        {
+            MetaDataPack metadata = new MetaDataPack();
+            metadata.Init();
+            foreach (var entry in BuildEntries())
+            {
+                metadata.Add(entry.data.Title);
+            }
+            return metadata;
+        }
+
+        public async void ImportMetaData()
+        {
+            //Internet read
+            Task<MetaDataPack> metaDataRead = MetaCheck.Read();
+            MetaDataPack metaDataPack = await metaDataRead;
+            if (metaDataPack == null)
+            {
+                EditorUtility.DisplayDialog("Homework", "Unable to load the latest data. The previous version will be used instead.\n\nPlease check your internet connection.", "Ok");
+
+                //Local read
+                metaDataPack = UserData.Current.ReadMetaData();
+            }
+            else
+            {
+                //Update local
+                UserData.Current.WriteMetaData(metaDataPack);
+            }
+
+            this.metaDataPack = metaDataPack;
+        }
+
+        public static MetaData GetMetaData(IOutlinerEntry entry)
+        {
+            MetaData data = Database.Resources.outlinerData.metaDataPack.metadata.FirstOrDefault(x => x.name == entry.Title);
+            if (data == null)
+                data = new MetaData(entry.Title);
+            return data;
+        }
+
+        public async void ExportMetaData()
+        {
+            PasswordWindow.Open(OnReceivePassword);
+
+            async void OnReceivePassword(string password)
+            {
+                if (string.IsNullOrEmpty(password))
+                    return;
+
+                if (string.IsNullOrEmpty(metaDataPack.timeStamp))
+                    metaDataPack = BuildMetaDataFromAssets();
+
+                (bool error, string errorMsg) = await MetaCheck.UpdateFlagsAsync(password, metaDataPack);
+
+                if (error)
+                    Debug.LogError(errorMsg);
+                else
+                    Debug.Log("Meta data exported");
+            }
+        }
+
         private void MarkReadOnly(UnityEngine.Object obj, bool readOnly)
         {
             if (obj == null)
@@ -149,5 +214,47 @@ namespace SamsBackpack.Homework
             string cleanedName = string.Join(" ", builder.ToString().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries));
             return cleanedName.Length > 0 ? cleanedName : "Unknown";
         }
+    }
+
+    [Serializable]
+    public class MetaDataPack
+    {
+        public string timeStamp;
+        public List<MetaData> metadata = new List<MetaData>();
+
+        public void Init()
+        {
+            metadata.Clear();
+            timeStamp = DateTime.Now.ToString();
+        }
+
+        public void Add(string name)
+        {
+            metadata.Add(new MetaData(name));
+        }
+    }
+
+    [Serializable]
+    public class MetaData
+    {
+        public string name;
+        public string comment;
+        public Status status;
+        public string limitedTime;
+
+        public MetaData(string name)
+        {
+            this.name = name;
+            status = Status.Unckecked;
+        }
+    }
+
+    public enum Status
+    {
+        Unckecked,
+        Hidden,
+        Available,
+        Limited,
+        Outdated
     }
 }

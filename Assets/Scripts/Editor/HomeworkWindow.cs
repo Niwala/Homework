@@ -4,7 +4,6 @@ using UnityEngine.UIElements;
 
 namespace SamsBackpack.Homework
 {
-
     public class HomeworkWindow : EditorWindow
     {
         private Outliner outliner;
