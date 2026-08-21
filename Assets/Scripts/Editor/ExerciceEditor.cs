@@ -38,14 +38,21 @@ namespace SamsBackpack.Homework
             {
                 string localFile = AbsoluteToRelativePath(file);
 
-                ReplaceIfEndWith(localFile, "_Solution.shadergraph", ref exercice.solution);
-                ReplaceIfEndWith(localFile, "_User.shadergraph", ref exercice.userShader);
+                ReplaceIfEndWith(localFile, "_Solution.shadergraph", ref exercice.solutionShader);
+                ReplaceIfEndWith(localFile, "_Start.shadergraph", ref exercice.startShader);
                 ReplaceIfEndWith(localFile, ".uxml", ref exercice.article);
             }
+
+            if (exercice.startShader != null)
+            {
+                string startPath = AssetDatabase.GetAssetPath(exercice.startShader);
+                exercice.startGuid = AssetDatabase.AssetPathToGUID(startPath);
+            }
+
             EditorUtility.SetDirty(exercice);
 
-            Rename(exercice.solution, name + "_Solution");
-            Rename(exercice.userShader, name + "_User");
+            Rename(exercice.solutionShader, name + "_Solution");
+            Rename(exercice.startShader, name + "_Start");
             Rename(exercice.article, name);
             Rename(exercice, name);
         }

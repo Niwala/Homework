@@ -9,49 +9,68 @@ namespace SamsBackpack.Homework
     [UxmlElement]
     public partial class ChapterControls : VisualElement
     {
+        //Data
+        private HomeworkContent content;
+
+        //UI
         private TextField surnameField;
         private TextField nameField;
-
         private Button exportBtn;
-        private Chapter chapter;
+        private Button loadBtn;
+        private Button resetBtn;
 
         public ChapterControls()
         {
-            //Fields
-            VisualElement fields = this.Add("fields", "homework-chapter-fields");
-            surnameField = fields.Add<TextField>("surname-field");
-            surnameField.label = "Nom";
-            surnameField.style.marginBottom = 5;
-
-            nameField = fields.Add<TextField>("name-field");
-            nameField.label = "Prénom";
-            nameField.style.marginBottom = 5;
-
-
-            //Controls
-            VisualElement controls = this.Add("controls", "homework-chapter-controls");
-
-            //Export btn
-            exportBtn = controls.Add<Button>("export-btn", "homework-chapter-controls-btn");
-            exportBtn.text = "Export";
-            exportBtn.clicked += Export;
+            this.RegisterCallback<AttachToPanelEvent>(OnAttachToParent);
         }
 
-        public void Bind(OutlinerData outlinerData, Chapter chapter)
+        private void OnAttachToParent(AttachToPanelEvent e)
         {
-            this.chapter = chapter;
+            content = this.GetFirstAncestorOfType<HomeworkContent>();
+            UserData userData = UserData.Current;
+            SerializedObject so = UserData.SerializedObject;
 
-            SerializedObject so = new SerializedObject(outlinerData);
-            surnameField.BindProperty(so.FindProperty(nameof(outlinerData.userSurname)));
-            nameField.BindProperty(so.FindProperty(nameof(outlinerData.userName)));
+            //Export
+            surnameField = parent.Q<TextField>("surname-field");
+            surnameField?.BindProperty(so.FindProperty(nameof(userData.userSurname)));
+            nameField = parent.Q<TextField>("name-field");
+            nameField?.BindProperty(so.FindProperty(nameof(userData.userName)));
+            exportBtn = parent.Q<Button>("export-btn");
+            if (exportBtn != null)
+                exportBtn.clicked += Export;
+
+            //Load
+            loadBtn = parent.Q<Button>("load-btn");
+            if (loadBtn != null)
+                loadBtn.clicked += Load;
+
+            //Reset
+            resetBtn = parent.Q<Button>("reset-btn");
+            if (resetBtn != null)
+                resetBtn.clicked += Reset;
         }
 
         public void Export()
         {
+            Chapter chapter = content.Entry as Chapter;
             if (chapter == null)
                 return;
 
             Database.Resources.outlinerData.Export(chapter);
+        }
+
+        public void Load()
+        {
+            Chapter chapter = content.Entry as Chapter;
+            if (chapter != null)
+                Loader.Load(chapter);
+        }
+
+        public void Reset()
+        {
+            Chapter chapter = content.Entry as Chapter;
+            if (chapter != null)
+                Loader.Reset(chapter);
         }
     }
 }

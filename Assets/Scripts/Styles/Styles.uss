@@ -108,8 +108,9 @@
     height: 24px;
     flex-shrink: 0;
     flex-grow: 0;
-    margin-right: 5px;
+    margin-right: 7px;
     margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .homework-text {
@@ -341,4 +342,16 @@
     transition-timing-function: ease-out-elastic;
     transition-property: height;
     height: 300px;
+}
+
+.homework-callout-end-button {
+    position: relative;
+    height: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-top: 5px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    margin-left: 0;
+    align-self: flex-end;
 }

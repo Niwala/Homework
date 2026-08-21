@@ -46,7 +46,7 @@ namespace SamsBackpack.Homework
         {
             this.exercice = exercice;
 
-            solution.shader = exercice.solution;
+            solution.shader = exercice.solutionShader;
             solution.Refresh();
 
             user.shader = exercice.userShader;
@@ -55,7 +55,7 @@ namespace SamsBackpack.Homework
 
         private void OpenSolution()
         {
-            AssetDatabase.OpenAsset(exercice.solution);
+            AssetDatabase.OpenAsset(exercice.solutionShader);
         }
 
         private void OpenUserShader()

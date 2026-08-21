@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77f01a01bfb5ad4d82e2e4baf3f5a13, type: 3}
   m_Name: Atan2
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Exercice
-  title: Sin
+  article: {fileID: 0}
   status: 0
-  example: {fileID: 0}
-  defaultState: {fileID: 0}
-  userShader: {fileID: 0}
+  solutionShader: {fileID: 0}
+  startShader: {fileID: 0}

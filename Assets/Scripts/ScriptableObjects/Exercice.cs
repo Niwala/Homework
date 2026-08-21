@@ -1,3 +1,5 @@
+using System;
+
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -15,9 +17,14 @@ namespace SamsBackpack.Homework
         [SerializeField]
         public Status status;
 
-        public Shader solution;
-        public Shader defaultState;
+
+        [NonSerialized]
         public Shader userShader;
+        public Shader solutionShader;
+        public Shader startShader;
+
+        [HideInInspector]
+        public string startGuid;
 
         public enum Status
         {

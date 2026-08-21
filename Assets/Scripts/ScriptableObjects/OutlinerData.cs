@@ -16,9 +16,7 @@ namespace SamsBackpack.Homework
 
     public class OutlinerData : ScriptableObject
     {
-        public VisualTreeAsset chapterExport;
-        public string userName;
-        public string userSurname;
+        public VisualTreeAsset chapterControls;
         public MetaDataPack metaDataPack;
 
         public List<TreeViewItemData<IOutlinerEntry>> BuildEntries()
@@ -51,8 +49,8 @@ namespace SamsBackpack.Homework
 
                 if (obj is Exercice ex)
                 {
-                    MarkReadOnly(ex.solution, true);
-                    MarkReadOnly(ex.defaultState, true);
+                    MarkReadOnly(ex.solutionShader, true);
+                    MarkReadOnly(ex.startShader, true);
                     MarkReadOnly(ex.userShader, false);
                 }
 
@@ -183,15 +181,17 @@ namespace SamsBackpack.Homework
         public void Export(Chapter chapter)
         {
             AssetDatabase.SaveAssets();
+            UserData userData = UserData.Current;
+            UserData.SerializedObject.ApplyModifiedProperties();
 
             ExportData exportData = new ExportData()
             {
-                surname = userSurname,
-                name = userName,
+                surname = userData.userSurname,
+                name = userData.userName,
                 content = chapter.Title,
             };
 
-            string exportName = $"{chapter.Title}_{CleanName(userSurname).ToUpper()}_{CleanName(userName)}";
+            string exportName = $"{chapter.Title}_{CleanName(userData.userSurname).ToUpper()}_{CleanName(userData.userName)}";
             Exporter.Export(exportData, "", exportName);
         }
 
@@ -214,47 +214,5 @@ namespace SamsBackpack.Homework
             string cleanedName = string.Join(" ", builder.ToString().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries));
             return cleanedName.Length > 0 ? cleanedName : "Unknown";
         }
-    }
-
-    [Serializable]
-    public class MetaDataPack
-    {
-        public string timeStamp;
-        public List<MetaData> metadata = new List<MetaData>();
-
-        public void Init()
-        {
-            metadata.Clear();
-            timeStamp = DateTime.Now.ToString();
-        }
-
-        public void Add(string name)
-        {
-            metadata.Add(new MetaData(name));
-        }
-    }
-
-    [Serializable]
-    public class MetaData
-    {
-        public string name;
-        public string comment;
-        public Status status;
-        public string limitedTime;
-
-        public MetaData(string name)
-        {
-            this.name = name;
-            status = Status.Unckecked;
-        }
-    }
-
-    public enum Status
-    {
-        Unckecked,
-        Hidden,
-        Available,
-        Limited,
-        Outdated
     }
 }

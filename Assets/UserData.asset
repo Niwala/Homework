@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69eba4741f866be4b8f43551007fe9d5, type: 3}
   m_Name: UserData
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.UserData
+  userName: Samuel
+  userSurname: Jemine
   metadata:
     timeStamp: 20-08-26 17:15:33
     metadata:
@@ -25,21 +27,21 @@ MonoBehaviour:
       limitedTime: 
     - name: Uv
       comment: 
-      status: 3
+      status: 2
       limitedTime: 
     - name: Warmup
       comment: 
-      status: 0
+      status: 1
       limitedTime: 
     - name: Distances Remake
       comment: 
-      status: 0
+      status: 1
       limitedTime: 
     - name: FlowMap
       comment: 
-      status: 0
+      status: 1
       limitedTime: 
     - name: Trigonometry
       comment: 
-      status: 0
+      status: 1
       limitedTime: 

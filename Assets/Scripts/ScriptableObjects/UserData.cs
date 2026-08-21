@@ -6,6 +6,8 @@ namespace SamsBackpack.Homework
 {
     public class UserData : ScriptableObject
     {
+        public string userName;
+        public string userSurname;
         public MetaDataPack metadata = new MetaDataPack();
 
         private const string path = "Assets/UserData.asset";
@@ -23,7 +25,16 @@ namespace SamsBackpack.Homework
         }
         private static UserData current;
 
-
+        public static SerializedObject SerializedObject
+        {
+            get
+            {
+                if (serializedObject == null)
+                    serializedObject = new SerializedObject(Current);
+                return serializedObject;
+            }
+        }
+        private static SerializedObject serializedObject;
 
 
         public static UserData LoadExistingUserData()

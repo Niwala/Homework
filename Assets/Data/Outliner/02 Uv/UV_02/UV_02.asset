@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77f01a01bfb5ad4d82e2e4baf3f5a13, type: 3}
+  m_Name: UV_02
+  m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Exercice
+  article: {fileID: 9197481963319205126, guid: 44f072347df0fd241a21e8627ca64fc9, type: 3}
+  status: 0
+  solutionShader: {fileID: -6465566751694194690, guid: c7fda0c415f6a104d93e10c8d1283e01, type: 3}
+  startShader: {fileID: -6465566751694194690, guid: 7ca54bda6d328f044942abafd60218ea, type: 3}

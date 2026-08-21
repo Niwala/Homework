@@ -81,10 +81,9 @@ namespace SamsBackpack.Homework
             if (entry is Chapter chapter)
             {
                 OutlinerData outlinerData = Database.Resources.outlinerData;
-                VisualElement chapterExportSection = outlinerData.chapterExport.CloneTree();
-                ChapterControls controls = chapterExportSection.Q<ChapterControls>();
-                controls.Bind(outlinerData, chapter);
-                shaderArea.Add(chapterExportSection);
+
+                VisualElement chapterControls = outlinerData.chapterControls.CloneTree();
+                shaderArea.Add(chapterControls);
             }
 
             //Comment overlay

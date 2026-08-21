@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66892c591f1302846a1c12da11842ad0, type: 3}
   m_Name: Outliner Data
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.OutlinerData
-  chapterExport: {fileID: 9197481963319205126, guid: bb2802b2bdb84504ba15c6b0a51124b2, type: 3}
-  userName: Samuel
-  userSurname: Jemine
+  chapterControls: {fileID: 9197481963319205126, guid: bb2802b2bdb84504ba15c6b0a51124b2, type: 3}
+  metaDataPack:
+    timeStamp: 
+    metadata: []
