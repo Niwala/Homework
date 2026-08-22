@@ -23,15 +23,19 @@
     border-top-width: 1px;
 }
 
+.homework-shader-column {
+    aspect-ratio: 1;
+    width: 50%;
+    align-items: center;
+}
+
 .homework-shader-element {
-    width: 200px;
-    height: 200px;
     margin-top: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
-    flex-shrink: 0;
-    flex-grow: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
     background-color: rgb(22, 22, 22);
     border-top-width: 3px;
     border-right-width: 3px;
@@ -45,15 +49,9 @@
     border-right-color: rgb(66, 139, 255);
     border-top-color: rgb(66, 139, 255);
     border-bottom-color: rgb(66, 139, 255);
-    transition-duration: 3s;
-}
-
-.homework-shader-element:checked {
-    transition-duration: 3s;
-    border-left-color: rgb(255, 86, 45);
-    border-right-color: rgb(255, 86, 45);
-    border-top-color: rgb(255, 86, 45);
-    border-bottom-color: rgb(255, 86, 45);
+    aspect-ratio: 1;
+    min-width: 64px;
+    min-height: 64px;
 }
 
 .homework-article {

@@ -21,9 +21,7 @@ namespace SamsBackpack.Homework
             h.style.flexDirection = FlexDirection.Row;
 
             //Solution
-            VisualElement solutionColumn = h.Add("solution");
-            solutionColumn.style.alignItems = Align.Center;
-            solutionColumn.style.width = new Length(50, LengthUnit.Percent);
+            VisualElement solutionColumn = h.Add("solution", "homework-shader-column");
             solution = solutionColumn.Add<ShaderElement>();
 
             Button showSolutionBtn = solutionColumn.Add<Button>("show-btn", "homework-shader-exercice-btn");
@@ -32,9 +30,7 @@ namespace SamsBackpack.Homework
 
 
             //User
-            VisualElement userColumn = h.Add("user");
-            userColumn.style.alignItems = Align.Center;
-            userColumn.style.width = new Length(50, LengthUnit.Percent);
+            VisualElement userColumn = h.Add("user", "homework-shader-column");
             user = userColumn.Add<ShaderElement>();
 
             Button editShaderBtn = userColumn.Add<Button>("edit-btn", "homework-shader-exercice-btn");
@@ -47,10 +43,10 @@ namespace SamsBackpack.Homework
             this.exercice = exercice;
 
             solution.shader = exercice.solutionShader;
-            solution.Refresh();
+            //solution.Refresh();
 
             user.shader = exercice.userShader;
-            user.Refresh();
+            //user.Refresh();
         }
 
         private void OpenSolution()

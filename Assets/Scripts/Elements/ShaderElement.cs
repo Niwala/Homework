@@ -14,6 +14,8 @@ namespace SamsBackpack.Homework
         [UxmlAttribute]
         public Shader shader { get; set; }
 
+        private IMGUIContainer imguiContainer;
+
         public Material material { get; private set; }
         private bool enable;
 
@@ -21,73 +23,26 @@ namespace SamsBackpack.Homework
         {
             AddToClassList("homework-shader-element");
 
-            RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
-            RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanel);
+            imguiContainer = this.Add<IMGUIContainer>();
+            imguiContainer.StretchToParentSize();
+            imguiContainer.onGUIHandler += OnDrawGUI;
+            imguiContainer.usageHints = UsageHints.DynamicColor;
 
-            this.generateVisualContent += GenerateVisualContent;
-            this.usageHints = UsageHints.LargePixelCoverage | UsageHints.DynamicColor | UsageHints.DynamicPostProcessing | UsageHints.MaskContainer;
+            //this.usageHints = UsageHints.DynamicColor;
         }
 
-        private void OnAttachToPanel(AttachToPanelEvent e)
-        {
-            Refresh();
-        }
-
-        private void OnDetachFromPanel(DetachFromPanelEvent e)
-        {
-            style.unityMaterial = null;
-            material = null;
-            enable = false;
-        }
-
-        private void GenerateVisualContent(MeshGenerationContext ctx)
-        {
-            if (material != null)
-            {
-                float time = (float)(EditorApplication.timeSinceStartup % 1000);
-                material.SetVector("_TimeParameters", new Vector4(time, 0, 0, 0));
-            }
-        }
-
-        public void Refresh()
+        private void OnDrawGUI()
         {
             if (shader == null)
-            {
-                enable = false;
                 return;
-            }
 
-            if (!enable)
-            {
-                enable = true;
-                Loop();
-                AnimLoop();
-            }
+            if (material == null)
+                material = new Material(shader);
 
-            material = new Material(shader);
+            float time = (float)(EditorApplication.timeSinceStartup % 1000);
+            material.SetVector("_TimeParameters", new Vector4(time, 0, 0, 0));
             style.unityMaterial = material;
-        }
-
-        private async void Loop()
-        {
-            if (!enable)
-                return;
-
-            await Task.Delay(4);
-
-            MarkDirtyRepaint();
-            Loop();
-        }
-
-        private async void AnimLoop()
-        {
-            if (!enable)
-                return;
-
-            await Task.Delay(2000);
-
-            SetCheckedPseudoState(!hasCheckedPseudoState);
-            AnimLoop();
+            imguiContainer.MarkDirtyRepaint();
         }
     }
 }

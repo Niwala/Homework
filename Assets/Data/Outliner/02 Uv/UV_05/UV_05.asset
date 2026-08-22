@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77f01a01bfb5ad4d82e2e4baf3f5a13, type: 3}
   m_Name: UV_05
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Exercice
-  article: {fileID: 0}
+  article: {fileID: 9197481963319205126, guid: 3b02aaf643b619f4596b3669541c139f, type: 3}
   status: 0
   solutionShader: {fileID: -6465566751694194690, guid: 59d2f76dc5ffdca4ca3ff38542e4585d, type: 3}
   startShader: {fileID: -6465566751694194690, guid: f8982a12a11e047479b48280d9753e7b, type: 3}
+  startGuid: f8982a12a11e047479b48280d9753e7b
