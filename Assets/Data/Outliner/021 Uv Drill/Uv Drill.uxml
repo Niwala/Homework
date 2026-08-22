@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <SamsBackpack.Homework.ArticleElement>
+        <SamsBackpack.Homework.Title text="UV Drill" style="color: rgb(250, 139, 84); -unity-text-align: upper-center;"/>
+        <SamsBackpack.Homework.Title text="Un shader d&apos;exemple va s&apos;afficher ci-dessous et une fenêtre d&apos;édition va s&apos;ouvrir. &#10;Editez votre shader pour imiter celui d&apos;exemple le plus vite possible.&#10;Lors de la sauvegarde de votre shader, vous passerez automatiquement au suivant si il est juste. " type="2" style="color: rgb(159, 159, 159); -unity-font-style: normal; -unity-text-align: upper-center; margin-bottom: 10px;"/>
+        <SamsBackpack.Homework.WarmupCounter style="padding-top: 20px;"/>
+    </SamsBackpack.Homework.ArticleElement>
+</ui:UXML>

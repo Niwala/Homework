@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebee67d296e220048a52beb70557128a, type: 3}
-  m_Name: Warmup
+  m_Name: Uv Drill
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Chapter
-  article: {fileID: 9197481963319205126, guid: 4a300d54f724f15469e578721d78b479, type: 3}
+  article: {fileID: 9197481963319205126, guid: c0afb24d7f90d3c429b3692a6b814952, type: 3}
   placeHolder: {fileID: -6465566751694194690, guid: bf7abecda54c80046b84a3b0d6f0048f, type: 3}
   shaders:
   - solution: {fileID: -6465566751694194690, guid: 67e3edfbd3af6444e96a3cc0bec899f9, type: 3}

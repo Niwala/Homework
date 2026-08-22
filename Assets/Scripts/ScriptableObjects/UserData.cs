@@ -36,9 +36,9 @@ namespace SamsBackpack.Homework
         }
         private static SerializedObject serializedObject;
 
-
         public static UserData LoadExistingUserData()
         {
+
             return AssetDatabase.LoadAssetAtPath<UserData>(path);
         }
 

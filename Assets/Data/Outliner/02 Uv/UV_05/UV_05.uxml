@@ -2,20 +2,23 @@
     <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
     <SamsBackpack.Homework.ArticleElement>
         <SamsBackpack.Homework.Title text="Valeur absolue"/>
-        <SamsBackpack.Homework.Title text="Rappel" type="1"/>
-        <SamsBackpack.Homework.Text text="Lorsque nous travaillons avec des Uv, nous travaillons avec un vecteur.&#10;Dans notre cas, cela veut tout simplement dire que nous paquons plusieurs nombres ensembles.&#10;&#10;Si vous regardez la sortie de notre node, vous y voyez un &lt;color=#d1a9cb&gt;port rose avec un (4)&lt;/color&gt; à côté du nom. Cela indique que ce lien déplace 4 nombres d&apos;un coup. Il sont nommés (XYZW) ou (RGBA) en fonction de la situation. "/>
-        <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02%20Uv/UV_02/Photos_b2UfVG8o6U.png?fileID=2800000&amp;guid=1cf707d8880124b4a88139a76bdb3261&amp;type=3#Photos_b2UfVG8o6U" size="0.7"/>
-        <SamsBackpack.Homework.Text text="Même si dans la grande majorité des cas seul le XY nous intéresse en UV, Unity est capable d&apos;encoder des Uv sous forme de Vector4. "/>
-        <SamsBackpack.Homework.Title text="Conversion" type="1"/>
-        <SamsBackpack.Homework.Text text="Lorsque nous connectons des vecteurs d&apos;un node à l&apos;autre, le graph s&apos;occupe lui-même de faire la conversion. Cela est d&apos;ailleurs visible dans le premier exercice qui ne garde que le (XYZ) car tout ce que veux la BaseColor c&apos;est 3 nombres pour former une couleur RGB."/>
-        <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02%20Uv/UV_02/Photos_Y3tcEm9oUD.png?fileID=2800000&amp;guid=e03afd7ca5cd34646be1fea41e151c89&amp;type=3#Photos_Y3tcEm9oUD" size="0.7"/>
-        <SamsBackpack.Homework.Callout style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;">
-            <SamsBackpack.Homework.Text text="Remarquez que si vous convertissez de cette manière un &lt;color=#77d3d5&gt;nombre seul (1)&lt;/color&gt; vers n&apos;import quel vecteur il sera automatiquement placé dans chaque élément de ce vecteur.&#10;&#10;Donc le nombre &lt;color=#77d3d5&gt;0.3&lt;/color&gt; converti en Vecteur4 va donner &lt;color=#ffcdf7&gt;(0.3, 0.3, 0.3, 0.3)&lt;/color&gt; par exemple."/>
-        </SamsBackpack.Homework.Callout>
-        <SamsBackpack.Homework.Title text="Split, Combine, Append &amp; Swizzle" type="1"/>
-        <SamsBackpack.Homework.Text text="Il est très facile de restructurer ces vecteurs comme on l&apos;entend. Plusieurs nodes permettent ce travail avec différentes approches.&#10;&#10;Notez que cela ne change rien à la manière dont le shader est compilé, il n&apos;y a donc pas une approche qui serait plus performante qu&apos;une autre."/>
-        <ui:ScrollView mode="VerticalAndHorizontal">
-            <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02%20Uv/UV_02/Unity_bXnHW9Jr1l.png?fileID=2800000&amp;guid=5d6c96ec40866684ea91763be709e09e&amp;type=3#Unity_bXnHW9Jr1l" size="0.7"/>
-        </ui:ScrollView>
+        <SamsBackpack.Homework.Title text="Définition" type="1"/>
+        <SamsBackpack.Homework.Text text="La valeur absolue &lt;i&gt;(&quot;Abs&quot; en shader)&lt;/i&gt; d&apos;un nombre est la valeur positive de ce nombre.&#10;&#10;• La valeur absolue de -3 est 3.&#10;• La valeur absolue de 5 est 5.&#10;• La valeur absolue de -148.92 est 148.92"/>
+        <SamsBackpack.Homework.Title text="Utilisation" type="1"/>
+        <SamsBackpack.Homework.Text text="Une des utilisation la plus courante est de  créer une symmétrie / un mirror de nos valeurs.&#10;&#10;Voici un exemple d&apos;utilisation très classique :"/>
+        <SamsBackpack.Homework.GraphElement draw-zero="true" min="0,-1" thickness="1" show-x-labels="true" show-y-labels="true" background-color="rgb(31, 31, 31)" line-color="rgb(118, 118, 118)" shader="project://database/Assets/Data/Outliner/02%20Uv/UV_05/UV_05_Demo.shadergraph?fileID=-6465566751694194690&amp;guid=47c2580a33ba6df4888b166a69dc565d&amp;type=3#Shader Graphs/UV_05_Demo">
+            <SamsBackpack.Homework.GraphFrame>
+                <SamsBackpack.Homework.GraphShaderLine function="value = t - (_Subtract * 0.5);&#10;value = lerp(value, abs(value), _Abs);&#10;value = lerp(value, value * 2.0, _Multiply);" uniforms="float _Subtract;&#10;float _Abs;&#10;float _Multiply;" segment-count="64"/>
+                <SamsBackpack.Homework.Title text="Etape 1" type="2" style="margin-top: 0;"/>
+                <SamsBackpack.Homework.Text text="Notre point de départ sont les Uv.x, donc une valeur qui va de 0.0 à 1. &#10;Cependant, la fonction Abs n&apos;a d&apos;influence que sur les nombres négatifs. &#10;La première étape devrait être d&apos;appliquer un Subtract. &#10;&#10;Poussé à fond, le slider ci-dessous applique un -0.5 sur notre valeur."/>
+                <SamsBackpack.Homework.ShaderSlider label="Apply Subtract 0.5" high-value="1" property-name="_Subtract"/>
+                <SamsBackpack.Homework.Title text="Etape 2" type="2" name="Title" style="margin-top: 30px;"/>
+                <SamsBackpack.Homework.Text text="Nous pouvons ensuite appliquer la fonction Abs. Toutes les valeurs négatives vont alors se retrouver dans le positif." name="Text"/>
+                <SamsBackpack.Homework.ShaderSlider label="Apply Abs" high-value="1" property-name="_Abs"/>
+                <SamsBackpack.Homework.Title text="Etape 3" type="2" name="Title" style="margin-top: 30px;"/>
+                <SamsBackpack.Homework.Text text="Avec ces opérations, nos valeurs sont désormais entre 0.0 &lt;-&gt; 0.5.&#10;On peut simplement les multiplier par 2 pour retrouver un range de 0.0 &lt;-&gt; 1.0." name="Text"/>
+                <SamsBackpack.Homework.ShaderSlider label="Apply Multiply 2.0" high-value="1" property-name="_Multiply"/>
+            </SamsBackpack.Homework.GraphFrame>
+        </SamsBackpack.Homework.GraphElement>
     </SamsBackpack.Homework.ArticleElement>
 </ui:UXML>

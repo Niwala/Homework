@@ -1,0 +1,20 @@
+{
+    "elements": [
+        {
+            "key": 2325525428,
+            "uniforms": "float _Subtract;",
+            "content": "value = t - (_Subtract * 0.5);",
+            "shader": {
+                "instanceID": 0
+            }
+        },
+        {
+            "key": 60140757,
+            "uniforms": "float _Subtract;\nfloat _Abs;\nfloat _Multiply;",
+            "content": "value = t - (_Subtract * 0.5);\nvalue = lerp(value, abs(value), _Abs);\nvalue = lerp(value, value * 2.0, _Multiply);",
+            "shader": {
+                "instanceID": 0
+            }
+        }
+    ]
+}

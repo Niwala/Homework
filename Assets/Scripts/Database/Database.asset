@@ -73,3 +73,4 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 56a513096aba40342b3cfee3dbd24133, type: 3}
   - {fileID: 2800000, guid: 0283674bbeceb1546aa243d46ec7176f, type: 3}
   commentIcon: {fileID: 2800000, guid: b1caeb668b64862499ce4295b4cf278c, type: 3}
+  transientShaderTemplate: {fileID: 4900000, guid: 1feee69a28ed126468b578ed6b98fc22, type: 3}

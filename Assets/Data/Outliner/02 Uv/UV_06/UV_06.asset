@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77f01a01bfb5ad4d82e2e4baf3f5a13, type: 3}
   m_Name: UV_06
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Exercice
-  article: {fileID: 9197481963319205126, guid: ef948a6f64f03c242b99fe8b93c53d01, type: 3}
+  article: {fileID: 9197481963319205126, guid: 017b79ef58867324197ba9a4b7f354a8, type: 3}
   status: 0
   solutionShader: {fileID: -6465566751694194690, guid: 98bcf178d9838a0488e60c81d10a2e8d, type: 3}
   startShader: {fileID: -6465566751694194690, guid: 278b4307cc0e9f04cba53eef2a21c0cc, type: 3}

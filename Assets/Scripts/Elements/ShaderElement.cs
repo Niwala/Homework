@@ -44,5 +44,15 @@ namespace SamsBackpack.Homework
             style.unityMaterial = material;
             imguiContainer.MarkDirtyRepaint();
         }
+
+        public void SetFloat(string propertyName, float value)
+        {
+            material?.SetFloat(propertyName, value);
+        }
+
+        public void SetColor(string propertyName, Color value)
+        {
+            material?.SetColor(propertyName, value);
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace SamsBackpack.Homework
             //Button
             startButton = this.Add<Button>("start-btn", "homework-warmup-counter-btn");
             startButton.clicked += ButtonClicked;
-            startButton.text = "Initialize";
+            startButton.text = "Ready ?";
             startButton.SetCursor(MouseCursor.Link);
 
             this.RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanel);

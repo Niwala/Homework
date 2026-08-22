@@ -13,5 +13,6 @@ namespace SamsBackpack.Homework
         public List<Texture2D> icons;
 
         public Texture2D commentIcon;
+        public TextAsset transientShaderTemplate;
     }
 }

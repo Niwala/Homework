@@ -30,25 +30,9 @@
 }
 
 .homework-shader-element {
-    margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    margin-left: 5px;
     flex-shrink: 1;
     flex-grow: 1;
     background-color: rgb(22, 22, 22);
-    border-top-width: 3px;
-    border-right-width: 3px;
-    border-bottom-width: 3px;
-    border-left-width: 3px;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    border-left-color: rgb(66, 139, 255);
-    border-right-color: rgb(66, 139, 255);
-    border-top-color: rgb(66, 139, 255);
-    border-bottom-color: rgb(66, 139, 255);
     aspect-ratio: 1;
     min-width: 64px;
     min-height: 64px;
@@ -78,10 +62,11 @@
 }
 
 .homework-title-2 {
-    font-size: 16px;
-    color: rgb(183, 183, 183);
+    font-size: 18px;
+    color: rgb(85, 130, 193);
     flex-shrink: 0;
-    margin-top: 16px;
+    margin-top: 20px;
+    -unity-font-style: bold;
 }
 
 .homework-callout {
@@ -352,4 +337,118 @@
     margin-bottom: 5px;
     margin-left: 0;
     align-self: flex-end;
+}
+
+.homework-graph-view {
+    aspect-ratio: 1;
+    border-top-color: var(--unity-colors-object_field-border);
+    border-right-color: var(--unity-colors-object_field-border);
+    border-bottom-color: var(--unity-colors-object_field-border);
+    border-left-color: var(--unity-colors-object_field-border);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.homework-graph-bar {
+    position: absolute;
+    background-color: var(--unity-colors-default-background);
+    border-top-color: var(--unity-colors-object_field-border);
+    border-right-color: var(--unity-colors-object_field-border);
+    border-bottom-color: var(--unity-colors-object_field-border);
+    border-left-color: var(--unity-colors-object_field-border);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.homework-graph-bar-label {
+    -unity-text-align: middle-center;
+    opacity: 0.8;
+}
+
+.homework-graph-element {
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 600px;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.homework-graph-description {
+    flex-grow: 1;
+}
+
+.homework-graph-canvas {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.homework-graph-frame {
+    margin-left: 20px;
+}
+
+.homework-hint-mask {
+    background-color: var(--unity-colors-input_field-background);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.homework-hint-mask:hover {
+    background-color: var(--unity-colors-button-background);
+}
+
+.homework-hint-mask:checked {
+    background-color: var(--unity-colors-button-background-pressed);
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.homework-hint-label {
+    -unity-text-align: middle-center;
+    font-size: 16px;
+    flex-grow: 1;
+}
+
+.homework-hint {
+    border-top-color: var(--unity-colors-input_field-border);
+    border-right-color: var(--unity-colors-input_field-border);
+    border-bottom-color: var(--unity-colors-input_field-border);
+    border-left-color: var(--unity-colors-input_field-border);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    background-color: rgba(0, 0, 0, 0.12);
 }
