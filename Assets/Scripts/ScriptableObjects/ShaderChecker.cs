@@ -2,11 +2,26 @@ using UnityEditor;
 using UnityEngine;
 
 using System.Reflection;
+using System.Collections.Generic;
 
 namespace SamsBackpack.Homework
 {
     public class ShaderChecker : AssetPostprocessor
     {
+        private static HashSet<IShaderCheck> checkers = new HashSet<IShaderCheck>();
+
+        public static void Register(IShaderCheck checker)
+        {
+            if (!checkers.Contains(checker))
+                checkers.Add(checker);
+        }
+
+        public static void Unregister(IShaderCheck checker)
+        {
+            if (checkers.Contains(checker))
+                checkers.Remove(checker);
+        }
+
         public static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
             for (int i = 0; i < importedAssets.Length; i++)
@@ -24,6 +39,14 @@ namespace SamsBackpack.Homework
             Shader shader = AssetDatabase.LoadAssetAtPath<Shader>(file);
             if (shader == null)
                 return;
+
+            foreach (var checker in checkers)
+            {
+                if (checker.ShouldCheck(shader, file, out Shader other))
+                {
+
+                }
+            }
 
             if (WarmupCounter.currentCounter.currentUser == shader)
             {
@@ -48,5 +71,12 @@ namespace SamsBackpack.Homework
                 }
             }          
         }
+    }
+
+    public interface IShaderCheck
+    {
+        public bool ShouldCheck(Shader shader, string filepath, out Shader other);
+
+        public void CheckResult(Shader shader, Shader other, uint delta);
     }
 }

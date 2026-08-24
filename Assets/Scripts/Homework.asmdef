@@ -2,7 +2,8 @@
     "name": "Homework",
     "rootNamespace": "SamsBackpack.Homework",
     "references": [
-        ""
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

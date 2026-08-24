@@ -44,8 +44,8 @@ namespace SamsBackpack.Homework
         [UxmlAttribute]
         public Shader Shader
         {
-            get => shader.shader;
-            set => shader.shader = value;
+            get => shader.Shader;
+            set => shader.Shader = value;
         }
 
         [UxmlAttribute]
@@ -87,16 +87,18 @@ namespace SamsBackpack.Homework
 
             //Vertical
             VisualElement vertical = hierarchy.Add("vertical");
+            vertical.style.width = new Length(50, LengthUnit.Percent);
+            vertical.style.aspectRatio = 0.5f;
 
             //View
             view = vertical.Add("view", "homework-graph-view");
-            view.style.height = new Length(50, LengthUnit.Percent);
             canvas = view.Add("canvas", "homework-graph-canvas");
 
             //Shader
-            shaderView = vertical.Add<ShaderElement>("shader-view");
-            shaderView.style.marginTop = shaderView.style.marginRight = 20;
-            shaderView.style.height = new Length(50, LengthUnit.Percent);
+            shaderView = vertical.Add<ShaderElement>("shader-view", "homework-graph-view");
+            shaderView.style.marginTop = 20;
+            shaderView.style.marginRight = 2;
+            shaderView.style.flexGrow = 0;
 
             shader = shaderView.Add<ShaderElement>();
             shader.style.flexGrow = 0;
@@ -112,14 +114,20 @@ namespace SamsBackpack.Homework
             //Top
             top = view.Add("top", "homework-graph-bar");
             top.style.borderBottomWidth = 1;
-            AddBarLabels(top, true);
 
             //Right
             right = view.Add("right", "homework-graph-bar");
             right.style.borderLeftWidth = 1;
-            AddBarLabels(right, false);
 
             UpdateVisibilities();
+
+            this.RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
+        }
+
+        private void OnAttachToPanel(AttachToPanelEvent e)
+        {
+            AddBarLabels(top, true); 
+            AddBarLabels(right, false);
         }
 
         private void UpdateVisibilities()
@@ -164,9 +172,13 @@ namespace SamsBackpack.Homework
 
         private void AddBarLabels(VisualElement element, bool horizontal)
         {
-            AddBarLabels(element, horizontal, 0.0f, "-1.0");
-            AddBarLabels(element, horizontal, 0.5f, "0.0");
-            AddBarLabels(element, horizontal, 1.0f, "1.0");
+            float minValue = horizontal ? min.x : min.y;
+            float maxValue = horizontal ? max.x : max.y;
+            float midValue = (minValue + maxValue) * 0.5f;
+
+            AddBarLabels(element, horizontal, 0.0f, minValue.ToString("0.0"));
+            AddBarLabels(element, horizontal, 0.5f, midValue.ToString("0.0"));
+            AddBarLabels(element, horizontal, 1.0f, maxValue.ToString("0.0"));
         }
 
         private void AddBarLabels(VisualElement element, bool horizontal, float t, string text)
@@ -232,7 +244,7 @@ namespace SamsBackpack.Homework
             else
                 properties.floatValues.Add(propertyName, value);
 
-            properties.Apply(shader.material);
+            shader.SetFloat(propertyName, value);
             this.MarkDirtyRepaint();
         }
 
@@ -243,7 +255,7 @@ namespace SamsBackpack.Homework
             else
                 properties.colorValues.Add(propertyName, value);
 
-            properties.Apply(shader.material);
+            shader.SetColor(propertyName, value);
             this.MarkDirtyRepaint();
         }
     }

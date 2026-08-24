@@ -10,12 +10,14 @@ namespace SamsBackpack.Homework
     {
         public string Title => name;
         public VisualTreeAsset Article => article;
-
+        public float Priority => entryPriority;
 
         public VisualTreeAsset article;
 
         [SerializeField]
         public Status status;
+        [SerializeField]
+        public float entryPriority = 0;
 
 
         [NonSerialized]

@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400f501ff8bb03c429088e9ad0731c28, type: 3}
+  m_Name: Vertex
+  m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Chapter
+  article: {fileID: 9197481963319205126, guid: 6713ce7b7b2a11f47901a67c9d030493, type: 3}

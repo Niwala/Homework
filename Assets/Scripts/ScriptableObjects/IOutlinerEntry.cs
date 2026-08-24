@@ -8,6 +8,8 @@ namespace SamsBackpack.Homework
     {
         public string Title { get; }
 
+        public float Priority { get; }
+
         public virtual VisualTreeAsset Article => null;
 
         /// <summary>

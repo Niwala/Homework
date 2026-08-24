@@ -72,5 +72,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 760d270559c243441b61753ae7831b56, type: 3}
   - {fileID: 2800000, guid: 56a513096aba40342b3cfee3dbd24133, type: 3}
   - {fileID: 2800000, guid: 0283674bbeceb1546aa243d46ec7176f, type: 3}
+  showIcon: {fileID: 2800000, guid: ff4c779389147fb47ad25b8ffaa32726, type: 3}
+  editIcon: {fileID: 2800000, guid: 88fee26d38f8a234e91a2ea5c620b534, type: 3}
+  resetIcon: {fileID: 2800000, guid: bd719489df385664283db9e104f579fa, type: 3}
+  timeIcon: {fileID: 2800000, guid: 32e5ce81c5b451b49a00e7b9881ea281, type: 3}
+  warningIcon: {fileID: 2800000, guid: 027050a9c3393a245a4cae7cb2db7447, type: 3}
   commentIcon: {fileID: 2800000, guid: b1caeb668b64862499ce4295b4cf278c, type: 3}
   transientShaderTemplate: {fileID: 4900000, guid: 1feee69a28ed126468b578ed6b98fc22, type: 3}

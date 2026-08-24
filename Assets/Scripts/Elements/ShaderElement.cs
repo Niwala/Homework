@@ -7,42 +7,77 @@ using UnityEngine.UIElements;
 
 namespace SamsBackpack.Homework
 {
+
     [UxmlElement]
     public partial class ShaderElement : VisualElement, ICommentable
     {
 
         [UxmlAttribute]
-        public Shader shader { get; set; }
+        public Shader Shader
+        {
+            get
+            {
+                return shader;
+            }
+            set
+            {
+                if (shader == value)
+                    return;
 
-        private IMGUIContainer imguiContainer;
+                shader = value;
 
-        public Material material { get; private set; }
-        private bool enable;
+                if (shader == null)
+                    material = null;
+                else
+                    material = new Material(shader);
+
+                style.unityMaterial = material;
+            }
+        }
+
+        [UxmlAttribute]
+        public bool constantRepaint = true;
+
+        private Shader shader;
+        private Material material;
+        private double lastRepaint;
 
         public ShaderElement()
         {
             AddToClassList("homework-shader-element");
+            this.generateVisualContent += OnGenerateVisualContent;
 
-            imguiContainer = this.Add<IMGUIContainer>();
-            imguiContainer.StretchToParentSize();
-            imguiContainer.onGUIHandler += OnDrawGUI;
-            imguiContainer.usageHints = UsageHints.DynamicColor;
-
-            //this.usageHints = UsageHints.DynamicColor;
+            this.RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
+            this.RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanel);
         }
 
-        private void OnDrawGUI()
+        private void OnGenerateVisualContent(MeshGenerationContext ctx)
         {
-            if (shader == null)
+            if (shader == null || material == null)
                 return;
-
-            if (material == null)
-                material = new Material(shader);
 
             float time = (float)(EditorApplication.timeSinceStartup % 1000);
             material.SetVector("_TimeParameters", new Vector4(time, 0, 0, 0));
-            style.unityMaterial = material;
-            imguiContainer.MarkDirtyRepaint();
+        }
+
+        private void OnAttachToPanel(AttachToPanelEvent e)
+        {
+            if (constantRepaint)
+                EditorApplication.update += Loop;
+        }
+
+        private void OnDetachFromPanel(DetachFromPanelEvent e)
+        {
+            EditorApplication.update -= Loop;
+        }
+
+        private void Loop()
+        {
+            if ((EditorApplication.timeSinceStartup - lastRepaint) < 0.016f || !constantRepaint)
+                return;
+            lastRepaint = EditorApplication.timeSinceStartup;
+
+            MarkDirtyRepaint();
         }
 
         public void SetFloat(string propertyName, float value)

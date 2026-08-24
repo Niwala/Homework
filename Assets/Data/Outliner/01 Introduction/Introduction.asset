@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd10bbc9d90f780449e7d48e255f772b, type: 3}
   m_Name: Introduction
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Chapter
+  entryPriority: -5
   article: {fileID: 9197481963319205126, guid: 15d0d63c7518c6245bddd30049ba1e4f, type: 3}

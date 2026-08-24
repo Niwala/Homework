@@ -28,7 +28,7 @@ namespace SamsBackpack.Homework
         private void OnAttachToPanelEvent(AttachToPanelEvent e)
         {
             GraphElement element = this.GetFirstAncestorOfType<GraphElement>();
-            if (element.currentFrame == null)
+            if (element != null && element.currentFrame == null)
                 element.currentFrame = this;
         }
     }

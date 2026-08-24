@@ -191,5 +191,10 @@ namespace SamsBackpack.Homework
             fields.SetValue(objCursor, (int)cursor);
             element.style.cursor = new StyleCursor((Cursor)objCursor);
         }
+
+        public static void SetDisplay(this VisualElement element, bool flex)
+        {
+            element.style.display = flex ? DisplayStyle.Flex : DisplayStyle.None;
+        }
     }
 }

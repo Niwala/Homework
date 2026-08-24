@@ -1,0 +1,8 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3"/>
+    <SamsBackpack.Homework.ArticleElement>
+        <SamsBackpack.Homework.Title text="Uv"/>
+        <SamsBackpack.Homework.Text text="1. Pour réaliser un exercice, cliquez sur le bouton &quot;Edit shader&quot; sur le shader de droite.&#10;&#10;2. Une fois dans le shader editor, ajoutez un nouveau node avec la touche &quot;Espace&quot;.&#10;&#10;3. Tapez &quot;Uv&quot; dans la barre de recherche et sélectionnez le premier résultat.&#10;&#10;4. Une fois votre node créé, vous pouvez le connecter à Base Color."/>
+        <SamsBackpack.Homework.ShaderElement shader="project://database/Assets/Data/Outliner/07%20Animated/Animated_01/Animated_01_Solution.shadergraph?fileID=-6465566751694194690&amp;guid=537fad03cafe8404ca1829587183c500&amp;type=3#Shader Graphs/Animated_01_Solution"/>
+    </SamsBackpack.Homework.ArticleElement>
+</ui:UXML>

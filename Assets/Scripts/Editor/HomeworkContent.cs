@@ -20,6 +20,7 @@ namespace SamsBackpack.Homework
         private ToolbarMenu statusMenu;
         public CommentPopup commentPopup;
         private bool addCommentMode;
+        private string widthPref;
 
         public void Show(IOutlinerEntry entry)
         {
@@ -49,13 +50,19 @@ namespace SamsBackpack.Homework
 
         private void ShowDefaultView(IOutlinerEntry entry)
         {
+            bool isExercice = entry is Exercice;
+
             //Split
-            TwoPaneSplitView split = new TwoPaneSplitView(0, 600, TwoPaneSplitViewOrientation.Horizontal);
+            string prefName = isExercice ? "article" : "exercice";
+            widthPref = UserData.prefPrefix + prefName + ".width";
+            float defaultArticleWidth = EditorPrefs.GetFloat(widthPref, 500);
+            TwoPaneSplitView split = new TwoPaneSplitView(0, defaultArticleWidth, TwoPaneSplitViewOrientation.Horizontal);
             this.Add(split);
 
             ScrollView articleArea = split.Add<ScrollView>("article-area", "homework-article-area");
             articleArea.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
-            ScrollView shaderArea = split.Add<ScrollView>("shader-area", "homework-shader-area");
+            articleArea.RegisterCallback<GeometryChangedEvent>(OnSplitViewValueChanged);
+            VisualElement shaderArea = split.Add<VisualElement>("shader-area", "homework-shader-area");
 
 
 
@@ -65,7 +72,7 @@ namespace SamsBackpack.Homework
                 ShaderExercice shaderExercice = shaderArea.Add<ShaderExercice>();
                 shaderExercice.Bind(exercice);
 
-                CommentElement comment = shaderArea.Add<CommentElement>();
+                //CommentElement comment = shaderArea.Add<CommentElement>();
             }
 
             //Article
@@ -117,6 +124,15 @@ namespace SamsBackpack.Homework
             ve.RegisterCallback<PointerEnterEvent>(OnPointerEnter);
             ve.RegisterCallback<PointerLeaveEvent>(OnPointerLeave);
             ve.RegisterCallback<PointerDownEvent>(OnPointerDown);
+        }
+
+        private void OnSplitViewValueChanged(GeometryChangedEvent e)
+        {
+            float width = ((VisualElement)e.target).contentRect.width;
+            if (float.IsNaN(width) || width == 0)
+                return;
+
+            EditorPrefs.SetFloat(widthPref, width);
         }
 
         private void OnPointerEnter(PointerEnterEvent e)
@@ -189,6 +205,7 @@ namespace SamsBackpack.Homework
             MenuInfo info = (MenuInfo) a.userData;
             info.metadata.status = info.status;
             statusMenu.text = info.status.ToString();
+            SetupStatusMenu(Entry);
         }
 
         private DropdownMenuAction.Status GetStatus(DropdownMenuAction a)

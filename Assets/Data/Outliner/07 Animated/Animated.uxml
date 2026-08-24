@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3"/>
+    <SamsBackpack.Homework.ArticleElement>
+        <SamsBackpack.Homework.Title text="Vertex shader"/>
+    </SamsBackpack.Homework.ArticleElement>
+    <SamsBackpack.Homework.MeshElement mesh="project://database/Assets/Data/Outliner/05%20Vertex/PIvotBakingSphere.fbx?fileID=924266961619903624&amp;guid=0a8d8c5ff41f0a844857eb4be0568730&amp;type=3#PivotBakingSphere" shader="project://database/Assets/Data/Outliner/05%20Vertex/DefaultGrey.shadergraph?fileID=-6465566751694194690&amp;guid=6d1ac849548580043b6022629e032f1c&amp;type=3#Shader Graphs/DefaultGrey" object-size="1.55" can-pan="false" can-dolly="false" style="width: 300px; height: 300px;"/>
+</ui:UXML>

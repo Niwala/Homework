@@ -12,6 +12,11 @@ namespace SamsBackpack.Homework
         public ComputeShader warmupChecker;
         public List<Texture2D> icons;
 
+        public Texture2D showIcon;
+        public Texture2D editIcon;
+        public Texture2D resetIcon;
+        public Texture2D timeIcon;
+        public Texture2D warningIcon;
         public Texture2D commentIcon;
         public TextAsset transientShaderTemplate;
     }

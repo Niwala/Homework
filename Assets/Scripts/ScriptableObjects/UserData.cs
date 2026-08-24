@@ -11,6 +11,7 @@ namespace SamsBackpack.Homework
         public MetaDataPack metadata = new MetaDataPack();
 
         private const string path = "Assets/UserData.asset";
+        public const string prefPrefix = "samsbackpack.homework.";
 
         public static UserData Current
         {

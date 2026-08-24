@@ -27,17 +27,28 @@ namespace SamsBackpack.Homework
             rootVisualElement.styleSheets.Add(Database.Resources.styles);
 
             //Split
-            TwoPaneSplitView splitView = new TwoPaneSplitView(0, 200, TwoPaneSplitViewOrientation.Horizontal);
+            float defaultOultinerWidth = EditorPrefs.GetFloat(UserData.prefPrefix + "outliner.width", 200);
+            TwoPaneSplitView splitView = new TwoPaneSplitView(0, defaultOultinerWidth, TwoPaneSplitViewOrientation.Horizontal);
             rootVisualElement.Add(splitView);
 
             //Outliner
             outliner = splitView.Add<Outliner>();
+            outliner.RegisterCallback<GeometryChangedEvent>(OnSplitViewValueChanged);
 
             //Content
             content = splitView.Add<HomeworkContent>();
 
             //Events
             outliner.onSelectEntry += content.Show;
+        }
+
+        private void OnSplitViewValueChanged(GeometryChangedEvent e)
+        {
+            float width = outliner.contentRect.width;
+            if (float.IsNaN(width) || width == 0)
+                return;
+
+            EditorPrefs.SetFloat(UserData.prefPrefix + "outliner.width", width);
         }
     }
 }
