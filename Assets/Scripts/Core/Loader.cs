@@ -221,8 +221,6 @@ namespace SamsBackpack.Homework
             AssetDatabase.DeleteAsset(chapterUserPath);
             AssetDatabase.Refresh();
             loadedShaders = null;
-
-            Load(chapter);
         }
 
         public static bool IsLoaded(Chapter chapter)

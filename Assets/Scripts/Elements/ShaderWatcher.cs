@@ -8,18 +8,18 @@ namespace SamsBackpack.Homework
     [UxmlElement]
     public partial class ShaderWatcher : VisualElement
     {
-        private FileSystemWatcher watcher;
+        //private FileSystemWatcher watcher;
 
         public void Bind(Exercice exercice)
         {
-            Loader.GetPathInfo(exercice, out Loader.LoadInfo info);
-            string path = Path.GetDirectoryName(Path.GetFullPath(info.userPath));
-            watcher = new FileSystemWatcher(path);
-            watcher.Created += OnFileCreated;
-            watcher.Changed += OnFileChanged;
-            watcher.Deleted += OnFileDeleted;
+            //Loader.GetPathInfo(exercice, out Loader.LoadInfo info);
+            //string path = Path.GetDirectoryName(Path.GetFullPath(info.userPath));
+            //watcher = new FileSystemWatcher(path);
+            //watcher.Created += OnFileCreated;
+            //watcher.Changed += OnFileChanged;
+            //watcher.Deleted += OnFileDeleted;
 
-            this.RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanel);
+            //this.RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanel);
         }
 
         private void OnFileCreated(object sender, FileSystemEventArgs e)
@@ -39,10 +39,10 @@ namespace SamsBackpack.Homework
 
         private void OnDetachFromPanel(DetachFromPanelEvent e)
         {
-            if (watcher != null)
-            {
-                watcher.Dispose();
-            }
+            //if (watcher != null)
+            //{
+            //    watcher.Dispose();
+            //}
         }
     }
 }
