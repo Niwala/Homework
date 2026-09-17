@@ -15,5 +15,41 @@ MonoBehaviour:
   userName: 
   userSurname: 
   metadata:
-    timeStamp: 
-    entries: []
+    timeStamp: 17-09-26 11:31:04
+    entries:
+    - name: Homework
+      comment: 
+      status: 2
+      limitedTime: 
+    - name: Introduction
+      comment: 
+      status: 2
+      limitedTime: 
+    - name: Uv
+      comment: 
+      status: 1
+      limitedTime: 
+    - name: Uv Drill
+      comment: 
+      status: 1
+      limitedTime: 03-09-26 16:32:00
+    - name: Old Uv Drill
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: Vertex
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: Animated
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: Warmup
+      comment: 
+      status: 0
+      limitedTime: 
+    - name: Distances Remake
+      comment: 
+      status: 0
+      limitedTime: 
