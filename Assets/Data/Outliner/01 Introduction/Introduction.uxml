@@ -2,7 +2,19 @@
     <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
     <SamsBackpack.Homework.ArticleElement>
         <SamsBackpack.Homework.Title text="Introduction"/>
-        <SamsBackpack.Homework.Title text="Les fragment shaders" type="1"/>
-        <SamsBackpack.Homework.Text text="Dans ce projet nous éditons ce qui s&apos;appelle des fragment shaders."/>
+        <SamsBackpack.Homework.Title text="Les shaders" type="1"/>
+        <SamsBackpack.Homework.Text text="Les shaders sont des programmes qui s&apos;exécutent sur la carte graphique (GPU). Contrairement au CPU, qui est optimisé pour exécuter des tâches variées de façon séquentielle, le GPU est conçu pour exécuter une même opération sur un très grand nombre de données en même temps, de façon massivement parallèle.&#10;&#10;Cette particularité en fait un outil idéal pour traiter des géométries complexes ou le rendu d&apos;un grand nombre de pixels."/>
+        <SamsBackpack.Homework.Callout icon="project://database/Assets/Scripts/Database/Editor/Icons/chat-round-outline-128x128.png?fileID=2800000&amp;guid=8ff01a35a87bd8f45a758d3f6343d0ae&amp;type=3#chat-round-outline-128x128" color="rgb(255, 164, 76)">
+            <SamsBackpack.Homework.Text text="Analogie guerrière" style="color: rgb(255, 164, 76); margin-top: 8px; margin-bottom: 3px;"/>
+        </SamsBackpack.Homework.Callout>
+        <SamsBackpack.Homework.Title text="Les Fragment Shaders" type="1"/>
+        <SamsBackpack.Homework.Text text="Le fragment shader (aussi appelé pixel shader) est le shader responsable de calculer la couleur finale de chaque pixel affiché à l&apos;écran. Il s&apos;exécute une fois pour chaque fragment, une petite unité correspondant globalement à un pixel visible d&apos;un triangle à l&apos;écran."/>
+        <SamsBackpack.Homework.Text text="C&apos;est généralement dans le fragment shader que nous lisons les informations du mesh et des textures  pour en calculer le lighting et en faire une couleur finale."/>
+        <SamsBackpack.Homework.Callout icon="project://database/Assets/Scripts/Database/Editor/Icons/eye-outline-128x128.png?fileID=2800000&amp;guid=ff4c779389147fb47ad25b8ffaa32726&amp;type=3#eye-outline-128x128" color="rgb(255, 164, 76)">
+            <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                <SamsBackpack.Homework.Text text="Ouvrir ShaderGraph" style="color: rgb(255, 164, 76); margin-top: 8px; margin-bottom: 3px; flex-grow: 1;"/>
+                <SamsBackpack.Homework.OpenShaderButton shader="project://database/Assets/Data/Outliner/01%20Introduction/Introduction.shadergraph?fileID=-6465566751694194690&amp;guid=b3f80ec84e120494aba3465d5ce6327b&amp;type=3#Shader Graphs/Introduction" style="margin-right: -3px;"/>
+            </ui:VisualElement>
+        </SamsBackpack.Homework.Callout>
     </SamsBackpack.Homework.ArticleElement>
 </ui:UXML>

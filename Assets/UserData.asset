@@ -12,44 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69eba4741f866be4b8f43551007fe9d5, type: 3}
   m_Name: UserData
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.UserData
-  userName: Samuel
-  userSurname: Jemine
+  userName: 
+  userSurname: 
   metadata:
-    timeStamp: 23-08-26 13:28:39
-    metadata:
-    - name: Homework
-      comment: 
-      status: 2
-      limitedTime: 
-    - name: Introduction
-      comment: 
-      status: 2
-      limitedTime: 
-    - name: Uv
-      comment: 
-      status: 2
-      limitedTime: 
-    - name: Uv Drill
-      comment: 
-      status: 3
-      limitedTime: 
-    - name: Vertex
-      comment: 
-      status: 0
-      limitedTime: 
-    - name: Animated
-      comment: 
-      status: 0
-      limitedTime: 
-    - name: Warmup
-      comment: 
-      status: 0
-      limitedTime: 
-    - name: Distances Remake
-      comment: 
-      status: 4
-      limitedTime: 
-    - name: Textures
-      comment: 
-      status: 0
-      limitedTime: 
+    timeStamp: 
+    entries: []

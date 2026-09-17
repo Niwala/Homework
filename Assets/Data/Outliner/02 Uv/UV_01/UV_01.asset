@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Exercice
   article: {fileID: 9197481963319205126, guid: bee6b388057844549a75f56f0fd186a5, type: 3}
   status: 0
+  entryPriority: 0
   solutionShader: {fileID: -6465566751694194690, guid: 5bb581049623ffa4f89dcc40311dc63d, type: 3}
   startShader: {fileID: -6465566751694194690, guid: 13c2f3fed027aa44b9fe344ed91c805a, type: 3}
+  startGuid: 13c2f3fed027aa44b9fe344ed91c805a
