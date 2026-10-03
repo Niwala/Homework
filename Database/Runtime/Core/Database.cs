@@ -44,50 +44,9 @@ namespace Heaj.Homework
 {
     public static class Database
     {
+        private const string databaseGuid = "f23c48a3fb43a9244b70ca161c8081ee";
         public const string homeworkName = "Database";
         public const string resourcesFileType = "asset";
-
-
-        //Project settings
-#if !PROJECT_SETTINGS_NONE && (!PROJECT_SETTINGS_EDITOR_ONLY || UNITY_EDITOR)
-        public static Action OnProjectSettingsChanged;
-        public static Action OnProjectSettingsSaved;
-
-        public static HomeworkProjectSettings ProjectSettings
-        {
-#if UNITY_EDITOR
-            get => HomeworkProjectSettings.instance;
-#else
-        get
-        {
-            if (runtimeProjectSettings == null)
-            {
-                runtimeProjectSettings = ScriptableObject.CreateInstance<HomeworkProjectSettings>();
-                Resources.serializedProjectSettings.Deserialize(runtimeProjectSettings);
-            }
-
-            return runtimeProjectSettings;
-        }
-#endif
-        }
-
-#if !UNITY_EDITOR
-    private static HomeworkProjectSettings runtimeProjectSettings;
-#endif
-#endif
-
-        //User settings
-#if !USER_SETTINGS_NONE
-#if UNITY_EDITOR
-        public static Action OnUserSettingsChanged;
-        public static Action OnUserSettingsSaved;
-
-        public static HomeworkUserSettings UserSettings
-        {
-            get => HomeworkUserSettings.instance;
-        }
-#endif
-#endif
 
         //Resources
         public static Action OnResourcesChanged;
@@ -113,6 +72,23 @@ namespace Heaj.Homework
                 resources = HomeworkResources.instance;
                 return;
             }
+
+
+            //Try to load with guid
+            string path = AssetDatabase.GUIDToAssetPath(databaseGuid);
+            if (string.IsNullOrEmpty(path))
+            {
+                if (AssetDatabase.GetMainAssetTypeAtPath(path) == typeof(HomeworkResources))
+                {
+                    resources = AssetDatabase.LoadAssetAtPath<HomeworkResources>(path);
+                    if (resources != null)
+                    {
+                        RegisterAsPeloadedAsset(resources);
+                        return;
+                    }
+                }
+            }
+
 
             //Try to load ressources with file search starting from script location
             foreach (var file in RecursiveBubbleUpSearch(filePath, resourcesFileType))
