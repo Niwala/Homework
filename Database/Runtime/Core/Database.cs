@@ -76,7 +76,6 @@ namespace Heaj.Homework
 
             //Try to load with guid
             string path = AssetDatabase.GUIDToAssetPath(databaseGuid);
-            Debug.Log("Path : " +  path);
             if (!string.IsNullOrEmpty(path))
             {
                 if (AssetDatabase.GetMainAssetTypeAtPath(path) == typeof(HomeworkResources))
@@ -90,13 +89,9 @@ namespace Heaj.Homework
                 }
 
                 //Retry with force import
-                Debug.Log("File exist : " + File.Exists(path));
                 if (File.Exists(path))
                 {
                     AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
-                    ScriptableObject script = AssetDatabase.LoadAssetAtPath<ScriptableObject>(path);
-                    Debug.Log("Loaded : " + script);
-
                     if (AssetDatabase.GetMainAssetTypeAtPath(path) == typeof(HomeworkResources))
                     {
                         resources = AssetDatabase.LoadAssetAtPath<HomeworkResources>(path);
@@ -113,7 +108,6 @@ namespace Heaj.Homework
             //Try to load ressources with file search starting from script location
             foreach (var file in RecursiveBubbleUpSearch(filePath, resourcesFileType))
             {
-                Debug.Log("file : " + file);
                 string localPath = UnityRelativePath(file);
                 if (AssetDatabase.GetMainAssetTypeAtPath(localPath) == typeof(HomeworkResources))
                 {
