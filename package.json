@@ -1,0 +1,22 @@
+{
+  "name": "com.heaj.samshomework",
+  "version": "1.0.0",
+  "displayName": "Sam's Homework",
+  "description": "Contains the exercises from the Shader Development course at the Haute Ecole Albert Jacquard in Namur, Belgium.",
+  "unity": "6000.3",
+  "documentationUrl": "https://samtechart.notion.site/Homework-3ee5d96b946d80a39723fe30eec66f12",
+  "changelogUrl": "https://samtechart.notion.site/Homework-3ee5d96b946d80a39723fe30eec66f12",
+  "licensesUrl": "https://samtechart.notion.site/Homework-3ee5d96b946d80a39723fe30eec66f12",
+  "dependencies": {
+ },
+ "keywords": [
+    "Heaj",
+    "Sam",
+    "Homework"
+  ],
+  "author": {
+    "name": "Sam",
+    "email": "samuel.jemine@heaj.be",
+    "url": "https://app.notion.com/p/samtechart/Homework-3ee5d96b946d80a39723fe30eec66f12"
+  }
+}
