@@ -1,14 +1,14 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
-    <SamsBackpack.Homework.ArticleElement>
-        <SamsBackpack.Homework.Title text="Uv"/>
-        <SamsBackpack.Homework.Title text="Premier exercice" type="1"/>
-        <SamsBackpack.Homework.Text text="1. Pour réaliser un exercice, cliquez sur le bouton &quot;Edit shader&quot; sur le shader de droite.&#10;&#10;2. Une fois dans le shader editor, ajoutez un nouveau node avec la touche &quot;Espace&quot;.&#10;&#10;3. Tapez &quot;Uv&quot; dans la barre de recherche et sélectionnez le premier résultat.&#10;&#10;4. Une fois votre node créé, vous pouvez le connecter à Base Color."/>
-        <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02_Uv/UV_01/Unity_nLWju56piN.png?fileID=2800000&amp;guid=0f14a9706913dab4dae0423402ac1ea6&amp;type=3#Unity_nLWju56piN" style="max-height: 150px;"/>
-        <SamsBackpack.Homework.Text text="5. Enregistrez ensuite votre shader avec le bouton en haut à gauche ou un Ctrl + S"/>
-        <SamsBackpack.Homework.ImageElement source="project://database/Assets/Data/Outliner/02_Uv/UV_01/Unity_5wZCi3KOLP.png?fileID=2800000&amp;guid=60c35d6991b15cf4293e089d01d57e18&amp;type=3#Unity_5wZCi3KOLP"/>
-        <SamsBackpack.Homework.Text text="6. Enfin, fermez la fenêtre. Evitez de garder plein de fenêtre ouverte durant ces exercices, cela fait vite des erreurs.&#10;&#10;7. Si votre rendu est bien similaire à celui de la solution vous pouvez passer à l&apos;exercice suivant. "/>
-        <SamsBackpack.Homework.Title text="Consulter la solution" type="1"/>
-        <SamsBackpack.Homework.Text text="Vous pouvez toujours consulter la solution si besoin. Sachez cependant que votre approche peut différer de la solution tout en étant parfaitement correcte.&#10;"/>
-    </SamsBackpack.Homework.ArticleElement>
+    <Heaj.Homework.ArticleElement>
+        <Heaj.Homework.Title text="Uv"/>
+        <Heaj.Homework.Title text="Premier exercice" type="1"/>
+        <Heaj.Homework.Text text="1. Pour réaliser un exercice, cliquez sur le bouton &quot;Edit shader&quot; sur le shader de droite.&#10;&#10;2. Une fois dans le shader editor, ajoutez un nouveau node avec la touche &quot;Espace&quot;.&#10;&#10;3. Tapez &quot;Uv&quot; dans la barre de recherche et sélectionnez le premier résultat.&#10;&#10;4. Une fois votre node créé, vous pouvez le connecter à Base Color."/>
+        <Heaj.Homework.ImageElement source="project://database/Assets/Data/Outliner/02_Uv/UV_01/Unity_nLWju56piN.png?fileID=2800000&amp;guid=0f14a9706913dab4dae0423402ac1ea6&amp;type=3#Unity_nLWju56piN" style="max-height: 150px;"/>
+        <Heaj.Homework.Text text="5. Enregistrez ensuite votre shader avec le bouton en haut à gauche ou un Ctrl + S"/>
+        <Heaj.Homework.ImageElement source="project://database/Assets/Data/Outliner/02_Uv/UV_01/Unity_5wZCi3KOLP.png?fileID=2800000&amp;guid=60c35d6991b15cf4293e089d01d57e18&amp;type=3#Unity_5wZCi3KOLP"/>
+        <Heaj.Homework.Text text="6. Enfin, fermez la fenêtre. Evitez de garder plein de fenêtre ouverte durant ces exercices, cela fait vite des erreurs.&#10;&#10;7. Si votre rendu est bien similaire à celui de la solution vous pouvez passer à l&apos;exercice suivant. "/>
+        <Heaj.Homework.Title text="Consulter la solution" type="1"/>
+        <Heaj.Homework.Text text="Vous pouvez toujours consulter la solution si besoin. Sachez cependant que votre approche peut différer de la solution tout en étant parfaitement correcte.&#10;"/>
+    </Heaj.Homework.ArticleElement>
 </ui:UXML>

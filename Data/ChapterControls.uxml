@@ -1,31 +1,31 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3"/>
-    <SamsBackpack.Homework.ArticleElement style="max-width: 500px; min-width: 200px;">
+    <Style src="project://database/Packages/com.heaj.samshomework/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <Heaj.Homework.ArticleElement style="max-width: 500px; min-width: 200px;">
         <ui:VisualElement name="space" style="flex-grow: 0; height: 46px; flex-shrink: 0;"/>
         <ui:VisualElement name="load-section" style="flex-grow: 1;">
-            <SamsBackpack.Homework.Title text="Charger les exercices" type="1" name="Title"/>
-            <SamsBackpack.Homework.Callout icon="project://database/Assets/Scripts/Database/Editor/Icons/download3-outline-128x128.png?fileID=2800000&amp;guid=b99fc108eb5683b4eb272f72c5690280&amp;type=3#download3-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="opacity: 1;">
-                <SamsBackpack.Homework.Text text="Charger les exercices de ce chapitre dans le projet." style="opacity: 0.64; font-size: 12px; margin-right: 0; margin-bottom: 4px; margin-top: 4px;"/>
+            <Heaj.Homework.Title text="Charger les exercices" type="1" name="Title"/>
+            <Heaj.Homework.Callout icon="project://database/Packages/com.heaj.samshomework/Database/Editor/Icons/download3-outline-128x128.png?fileID=2800000&amp;guid=b99fc108eb5683b4eb272f72c5690280&amp;type=3#download3-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="opacity: 1;">
+                <Heaj.Homework.Text text="Charger les exercices de ce chapitre dans le projet." style="opacity: 0.64; font-size: 12px; margin-right: 0; margin-bottom: 4px; margin-top: 4px;"/>
                 <ui:Button text="Charger" name="load-btn" class="homework-callout-end-button"/>
-            </SamsBackpack.Homework.Callout>
+            </Heaj.Homework.Callout>
         </ui:VisualElement>
         <ui:VisualElement name="export-section" style="flex-grow: 1;">
-            <SamsBackpack.Homework.Title text="Si vous avez terminé ce chapitre" type="1"/>
-            <SamsBackpack.Homework.Text text="1. Vous pouvez indiquer votre nom et prénom puis exporter le contenu du chapitre avec le bouton Export ci-dessous.&#10;&#10;2. Ensuite, il vous faut upload l&apos;export dans le &lt;a href=https://heajbe.sharepoint.com/:f:/r/sites/ICNRemises26-27/Documents%20partages/General/TBJEUV009901%20Bac%20JV/B2/TCAA0001-1%20Tech%20art/TCAA0001-A-a/Travail%20Journalier?d=w0addb7337d694afb89db5f01fefa8d0c&amp;csf=1&amp;web=1&amp;e=46rClV&quot;&gt;dossier de travail journalier sharepoint&lt;/a&gt;."/>
-            <SamsBackpack.Homework.Callout icon="project://database/Assets/Scripts/Database/Editor/Icons/box5-outline-128x128.png?fileID=2800000&amp;guid=fb32c04ff2f8d434dbaf307e49cb7571&amp;type=3#box5-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="margin-top: 20px; opacity: 1;">
-                <SamsBackpack.Homework.Text text="Un export contient les shaders édités du chapitre, vos potentiels commentaires ainsi que des informations permettant de vous identifier." style="opacity: 0.64; font-size: 12px;"/>
+            <Heaj.Homework.Title text="Si vous avez terminé ce chapitre" type="1"/>
+            <Heaj.Homework.Text text="1. Vous pouvez indiquer votre nom et prénom puis exporter le contenu du chapitre avec le bouton Export ci-dessous.&#10;&#10;2. Ensuite, il vous faut upload l&apos;export dans le &lt;a href=https://heajbe.sharepoint.com/:f:/r/sites/ICNRemises26-27/Documents%20partages/General/TBJEUV009901%20Bac%20JV/B2/TCAA0001-1%20Tech%20art/TCAA0001-A-a/Travail%20Journalier?d=w0addb7337d694afb89db5f01fefa8d0c&amp;csf=1&amp;web=1&amp;e=46rClV&quot;&gt;dossier de travail journalier sharepoint&lt;/a&gt;."/>
+            <Heaj.Homework.Callout icon="project://database/Packages/com.heaj.samshomework/Database/Editor/Icons/box5-outline-128x128.png?fileID=2800000&amp;guid=fb32c04ff2f8d434dbaf307e49cb7571&amp;type=3#box5-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="margin-top: 20px; opacity: 1;">
+                <Heaj.Homework.Text text="Un export contient les shaders édités du chapitre, vos potentiels commentaires ainsi que des informations permettant de vous identifier." style="opacity: 0.64; font-size: 12px;"/>
                 <ui:TextField label="Nom" placeholder-text="..." name="surname-field"/>
                 <ui:TextField label="Prénom" placeholder-text="..." name="name-field" style="margin-top: 5px;"/>
                 <ui:Button text="Export" name="export-btn" class="homework-callout-end-button"/>
-            </SamsBackpack.Homework.Callout>
+            </Heaj.Homework.Callout>
         </ui:VisualElement>
         <ui:VisualElement name="reset-section" style="flex-grow: 1;">
-            <SamsBackpack.Homework.Title text="Réinitialiser les exercices" type="1"/>
-            <SamsBackpack.Homework.Callout icon="project://database/Assets/Scripts/Database/Editor/Icons/alert-triangle-outline-128x128.png?fileID=2800000&amp;guid=027050a9c3393a245a4cae7cb2db7447&amp;type=3#alert-triangle-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="opacity: 1;">
-                <SamsBackpack.Homework.Text text="Supprime toutes vos modifications sur le chapitre. Cette action est irréversible." style="opacity: 0.64; font-size: 12px; margin-right: 0; margin-bottom: 4px; margin-top: 4px;"/>
+            <Heaj.Homework.Title text="Réinitialiser les exercices" type="1"/>
+            <Heaj.Homework.Callout icon="project://database/Packages/com.heaj.samshomework/Database/Editor/Icons/alert-triangle-outline-128x128.png?fileID=2800000&amp;guid=027050a9c3393a245a4cae7cb2db7447&amp;type=3#alert-triangle-outline-128x128" opacity="0.5" color="rgb(255, 255, 255)" style="opacity: 1;">
+                <Heaj.Homework.Text text="Supprime toutes vos modifications sur le chapitre. Cette action est irréversible." style="opacity: 0.64; font-size: 12px; margin-right: 0; margin-bottom: 4px; margin-top: 4px;"/>
                 <ui:Button text="Réinitialiser" name="reset-btn" class="homework-callout-end-button"/>
-            </SamsBackpack.Homework.Callout>
+            </Heaj.Homework.Callout>
         </ui:VisualElement>
-        <SamsBackpack.Homework.ChapterControls/>
-    </SamsBackpack.Homework.ArticleElement>
+        <Heaj.Homework.ChapterControls/>
+    </Heaj.Homework.ArticleElement>
 </ui:UXML>

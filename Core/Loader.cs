@@ -15,7 +15,7 @@ namespace Heaj.Homework
     public static class Loader
     {
         private const string userShadersPath = "Assets/UserShaders/";
-        private const string startShadersPath = "/Homework/Data/";
+        private const string startShadersPath = "/com.heaj.samshomework/Data/";
         private static Dictionary<string, Shader> loadedShaders;
         private const double autoLockTime = 60;
 

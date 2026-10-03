@@ -1,10 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
-    <SamsBackpack.Homework.ArticleElement>
-        <SamsBackpack.Homework.Title text="Challenge : 9 nodes max."/>
-        <SamsBackpack.Homework.Text text="Essayez de résoudre cet exercice avec 9 nodes maximum."/>
-        <SamsBackpack.Homework.HintElement text="Indice" style="margin-top: 10px;">
-            <SamsBackpack.Homework.Text text="Les vecteurs sont vos amis (UV_02)"/>
-        </SamsBackpack.Homework.HintElement>
-    </SamsBackpack.Homework.ArticleElement>
+    <Style src="project://database/Packages/com.heaj.samshomework/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <Heaj.Homework.ArticleElement>
+        <Heaj.Homework.Title text="Challenge : 9 nodes max."/>
+        <Heaj.Homework.Text text="Essayez de résoudre cet exercice avec 9 nodes maximum."/>
+        <Heaj.Homework.HintElement text="Indice" style="margin-top: 10px;">
+            <Heaj.Homework.Text text="Les vecteurs sont vos amis (UV_02)"/>
+        </Heaj.Homework.HintElement>
+    </Heaj.Homework.ArticleElement>
 </ui:UXML>

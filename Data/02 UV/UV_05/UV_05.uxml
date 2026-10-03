@@ -1,24 +1,24 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <Style src="project://database/Assets/Scripts/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
-    <SamsBackpack.Homework.ArticleElement>
-        <SamsBackpack.Homework.Title text="Valeur absolue"/>
-        <SamsBackpack.Homework.Title text="Définition" type="1"/>
-        <SamsBackpack.Homework.Text text="La valeur absolue &lt;i&gt;(&quot;Abs&quot; en shader)&lt;/i&gt; d&apos;un nombre est la valeur positive de ce nombre.&#10;&#10;• La valeur absolue de -3 est 3.&#10;• La valeur absolue de 5 est 5.&#10;• La valeur absolue de -148.92 est 148.92"/>
-        <SamsBackpack.Homework.Title text="Utilisation" type="1"/>
-        <SamsBackpack.Homework.Text text="Une des utilisation la plus courante est de  créer une symmétrie / un mirror de nos valeurs.&#10;&#10;Voici un exemple d&apos;utilisation très classique :"/>
-        <SamsBackpack.Homework.GraphElement draw-zero="true" min="0,-1" thickness="1" show-x-labels="true" show-y-labels="true" background-color="rgb(31, 31, 31)" line-color="rgb(118, 118, 118)" shader="project://database/Assets/Data/Outliner/02%20Uv/UV_05/UV_05_Demo.shadergraph?fileID=-6465566751694194690&amp;guid=47c2580a33ba6df4888b166a69dc565d&amp;type=3#Shader Graphs/UV_05_Demo">
-            <SamsBackpack.Homework.GraphFrame>
-                <SamsBackpack.Homework.GraphShaderLine function="value = t - (_Subtract * 0.5);&#10;value = lerp(value, abs(value), _Abs);&#10;value = lerp(value, value * 2.0, _Multiply);" uniforms="float _Subtract;&#10;float _Abs;&#10;float _Multiply;" segment-count="64"/>
-                <SamsBackpack.Homework.Title text="Etape 1" type="2" style="margin-top: 0;"/>
-                <SamsBackpack.Homework.Text text="Notre point de départ sont les Uv.x, donc une valeur qui va de 0.0 à 1. &#10;Cependant, la fonction Abs n&apos;a d&apos;influence que sur les nombres négatifs. &#10;La première étape devrait être d&apos;appliquer un Subtract. &#10;&#10;Poussé à fond, le slider ci-dessous applique un -0.5 sur notre valeur."/>
-                <SamsBackpack.Homework.ShaderSlider label="Apply Subtract 0.5" high-value="1" property-name="_Subtract"/>
-                <SamsBackpack.Homework.Title text="Etape 2" type="2" name="Title" style="margin-top: 30px;"/>
-                <SamsBackpack.Homework.Text text="Nous pouvons ensuite appliquer la fonction Abs. Toutes les valeurs négatives vont alors se retrouver dans le positif." name="Text"/>
-                <SamsBackpack.Homework.ShaderSlider label="Apply Abs" high-value="1" property-name="_Abs"/>
-                <SamsBackpack.Homework.Title text="Etape 3" type="2" name="Title" style="margin-top: 30px;"/>
-                <SamsBackpack.Homework.Text text="Avec ces opérations, nos valeurs sont désormais entre 0.0 &lt;-&gt; 0.5.&#10;On peut simplement les multiplier par 2 pour retrouver un range de 0.0 &lt;-&gt; 1.0." name="Text"/>
-                <SamsBackpack.Homework.ShaderSlider label="Apply Multiply 2.0" high-value="1" property-name="_Multiply"/>
-            </SamsBackpack.Homework.GraphFrame>
-        </SamsBackpack.Homework.GraphElement>
-    </SamsBackpack.Homework.ArticleElement>
+    <Style src="project://database/Packages/com.heaj.samshomework/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <Heaj.Homework.ArticleElement>
+        <Heaj.Homework.Title text="Valeur absolue"/>
+        <Heaj.Homework.Title text="Définition" type="1"/>
+        <Heaj.Homework.Text text="La valeur absolue &lt;i&gt;(&quot;Abs&quot; en shader)&lt;/i&gt; d&apos;un nombre est la valeur positive de ce nombre.&#10;&#10;• La valeur absolue de -3 est 3.&#10;• La valeur absolue de 5 est 5.&#10;• La valeur absolue de -148.92 est 148.92"/>
+        <Heaj.Homework.Title text="Utilisation" type="1"/>
+        <Heaj.Homework.Text text="Une des utilisation la plus courante est de  créer une symmétrie / un mirror de nos valeurs.&#10;&#10;Voici un exemple d&apos;utilisation très classique :"/>
+        <Heaj.Homework.GraphElement draw-zero="true" min="0,-1" thickness="1" show-x-labels="true" show-y-labels="true" background-color="rgb(31, 31, 31)" line-color="rgb(118, 118, 118)" shader="project://database/Packages/com.heaj.samshomework/Data/02%20UV/UV_05/UV_05_Demo.shadergraph?fileID=-6465566751694194690&amp;guid=47c2580a33ba6df4888b166a69dc565d&amp;type=3#Shader Graphs/UV_05_Demo">
+            <Heaj.Homework.GraphFrame>
+                <Heaj.Homework.GraphShaderLine function="value = t - (_Subtract * 0.5);&#10;value = lerp(value, abs(value), _Abs);&#10;value = lerp(value, value * 2.0, _Multiply);" uniforms="float _Subtract;&#10;float _Abs;&#10;float _Multiply;" segment-count="64"/>
+                <Heaj.Homework.Title text="Etape 1" type="2" style="margin-top: 0;"/>
+                <Heaj.Homework.Text text="Notre point de départ sont les Uv.x, donc une valeur qui va de 0.0 à 1. &#10;Cependant, la fonction Abs n&apos;a d&apos;influence que sur les nombres négatifs. &#10;La première étape devrait être d&apos;appliquer un Subtract. &#10;&#10;Poussé à fond, le slider ci-dessous applique un -0.5 sur notre valeur."/>
+                <Heaj.Homework.ShaderSlider label="Apply Subtract 0.5" high-value="1" property-name="_Subtract"/>
+                <Heaj.Homework.Title text="Etape 2" type="2" name="Title" style="margin-top: 30px;"/>
+                <Heaj.Homework.Text text="Nous pouvons ensuite appliquer la fonction Abs. Toutes les valeurs négatives vont alors se retrouver dans le positif." name="Text"/>
+                <Heaj.Homework.ShaderSlider label="Apply Abs" high-value="1" property-name="_Abs"/>
+                <Heaj.Homework.Title text="Etape 3" type="2" name="Title" style="margin-top: 30px;"/>
+                <Heaj.Homework.Text text="Avec ces opérations, nos valeurs sont désormais entre 0.0 &lt;-&gt; 0.5.&#10;On peut simplement les multiplier par 2 pour retrouver un range de 0.0 &lt;-&gt; 1.0." name="Text"/>
+                <Heaj.Homework.ShaderSlider label="Apply Multiply 2.0" high-value="1" property-name="_Multiply"/>
+            </Heaj.Homework.GraphFrame>
+        </Heaj.Homework.GraphElement>
+    </Heaj.Homework.ArticleElement>
 </ui:UXML>
