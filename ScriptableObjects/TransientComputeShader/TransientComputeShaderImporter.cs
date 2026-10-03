@@ -1,4 +1,5 @@
 using System.IO;
+using System.Runtime.CompilerServices;
 
 using UnityEditor;
 using UnityEditor.AssetImporters;
@@ -7,9 +8,11 @@ using UnityEngine;
 
 namespace Heaj.Homework
 {
-    [ScriptedImporter(0, "tcs")]
+    [ScriptedImporter(1, "tcs")]
     public class TransientComputeShaderImporter : ScriptedImporter
     {
+        private const string templateFile = "TransientShaderTemplate.txt";
+
         public override void OnImportAsset(AssetImportContext ctx)
         {
             //Read file
@@ -35,10 +38,16 @@ namespace Heaj.Homework
 
         private static string GenerateShader(TransientComputeShaderElement element)
         {
-            string shader = Database.Resources.transientShaderTemplate.text;
+            string shader = ReadTemplate();
             shader = shader.Replace("#pragma uniforms", element.uniforms);
             shader = shader.Replace("#pragma content", element.content);
             return shader;
+        }
+
+        private static string ReadTemplate([CallerFilePath] string path = "")
+        {
+            string dir = Path.GetDirectoryName(path) + "\\" + templateFile;
+            return File.ReadAllText(dir);
         }
     }
 }
