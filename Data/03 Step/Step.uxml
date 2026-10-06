@@ -1,0 +1,42 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.heaj.samshomework/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3#Styles"/>
+    <Heaj.Homework.ArticleElement>
+        <Heaj.Homework.Title text="Step"/>
+        <Heaj.Homework.Title text="Description" type="1"/>
+        <Heaj.Homework.Text text="La fonction Step compare 2 valeur et retourne 0 ou 1 en fonction de laquele est la plus grande."/>
+        <Heaj.Homework.Text text="Vous pouvez visualiser la fonction Step comme ceci :"/>
+        <Heaj.Homework.Code text="if (a &gt;= b)&#10;&lt;indent=2em&gt;return 1;&lt;/indent&gt;&#10;else&#10;&lt;indent=2em&gt;return 0;&lt;/indent&gt;" selectable="true" focusable="true" parse-escape-sequences="true" enable-rich-text="true"/>
+        <Heaj.Homework.Horizontal box="true">
+            <Heaj.Homework.ShaderElement shader="project://database/Packages/com.heaj.samshomework/Data/03%20Step/Step_Constants.shadergraph?fileID=-6465566751694194690&amp;guid=416dfd08584c94344a3779acd51dc21c&amp;type=3#Shader Graphs/Step_Constants" style="width: 200px; height: 200px; max-width: 150px;"/>
+            <ui:VisualElement style="flex-grow: 1; margin-left: 10px; margin-right: 10px;">
+                <Heaj.Homework.Title text="Entre 2 uniforms" type="2" style="margin-top: 10px;"/>
+                <Heaj.Homework.ShaderProperties style="flex-grow: 1;"/>
+                <Heaj.Homework.Code text="result = step(A, B);" selectable="true" focusable="true" parse-escape-sequences="true" enable-rich-text="true"/>
+            </ui:VisualElement>
+        </Heaj.Homework.Horizontal>
+        <Heaj.Homework.Horizontal box="true">
+            <Heaj.Homework.ShaderElement shader="project://database/Packages/com.heaj.samshomework/Data/03%20Step/Step_Gradient.shadergraph?fileID=-6465566751694194690&amp;guid=33c23399e320a4845b3c0d8105777934&amp;type=3#Shader Graphs/Step_Gradient" style="width: 200px; height: 200px; max-width: 150px;"/>
+            <ui:VisualElement style="flex-grow: 1; margin-right: 10px; margin-left: 10px;">
+                <Heaj.Homework.Title text="Entre l&apos;uniform A et les uv.y " type="2" style="margin-top: 10px;"/>
+                <Heaj.Homework.ShaderProperties style="flex-grow: 1;"/>
+                <Heaj.Homework.Code text="Result = step(A, uv.y);" selectable="true" focusable="true" parse-escape-sequences="true" enable-rich-text="true"/>
+            </ui:VisualElement>
+        </Heaj.Homework.Horizontal>
+        <Heaj.Homework.Horizontal box="true">
+            <Heaj.Homework.ShaderElement shader="project://database/Packages/com.heaj.samshomework/Data/03%20Step/Step_Polar.shadergraph?fileID=-6465566751694194690&amp;guid=469c2f79d7ba9774eb808525b4990c9d&amp;type=3#Shader Graphs/Step_Polar" style="width: 200px; height: 200px; max-width: 150px;"/>
+            <ui:VisualElement style="flex-grow: 1; margin-right: 10px; margin-left: 10px;">
+                <Heaj.Homework.Title text="Entre l&apos;uniform A et un polar gradient" type="2" style="margin-top: 10px;"/>
+                <Heaj.Homework.ShaderProperties style="flex-grow: 1;"/>
+                <Heaj.Homework.Code text="Result = step(A, polarGradient);" selectable="true" focusable="true" parse-escape-sequences="true" enable-rich-text="true"/>
+            </ui:VisualElement>
+        </Heaj.Homework.Horizontal>
+        <Heaj.Homework.Horizontal box="true">
+            <Heaj.Homework.ShaderElement shader="project://database/Packages/com.heaj.samshomework/Data/03%20Step/Step_Spline.shadergraph?fileID=-6465566751694194690&amp;guid=24c3ccd5434c44c46a6f37e1c6d98a9e&amp;type=3#Shader Graphs/Step_Spline" style="width: 200px; height: 200px; max-width: 150px;"/>
+            <ui:VisualElement style="flex-grow: 1; margin-right: 10px; margin-left: 10px;">
+                <Heaj.Homework.Title text="Entre l&apos;uniform A et une texture cheloue" type="2" style="margin-top: 10px;"/>
+                <Heaj.Homework.ShaderProperties style="flex-grow: 1;"/>
+                <Heaj.Homework.Code text="Result = step(A, textureCheloue);" selectable="true" focusable="true" parse-escape-sequences="true" enable-rich-text="true"/>
+            </ui:VisualElement>
+        </Heaj.Homework.Horizontal>
+    </Heaj.Homework.ArticleElement>
+</ui:UXML>

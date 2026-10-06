@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 namespace Heaj.Homework
 {
-
     [UxmlElement]
     public partial class Callout : VisualElement, ICommentable
     {

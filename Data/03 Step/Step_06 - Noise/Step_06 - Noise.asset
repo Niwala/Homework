@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77f01a01bfb5ad4d82e2e4baf3f5a13, type: 3}
+  m_Name: Step_06 - Noise
+  m_EditorClassIdentifier: Homework::SamsBackpack.Homework.Exercice
+  article: {fileID: 9197481963319205126, guid: f7773257c97bc484b9dd76df1a534b9f, type: 3}
+  status: 0
+  entryPriority: 0
+  showProperties: 1
+  solutionShader: {fileID: -6465566751694194690, guid: dba79a0454f7f0c44926151f0fe008b5, type: 3}
+  startShader: {fileID: -6465566751694194690, guid: 0b52592a0b1ace1479d50d486a590e2b, type: 3}
+  startGuid: 0b52592a0b1ace1479d50d486a590e2b

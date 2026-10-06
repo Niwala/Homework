@@ -1,3 +1,5 @@
+using System;
+
 using UnityEditor;
 
 using UnityEngine;
@@ -39,6 +41,8 @@ namespace Heaj.Homework
         private Material material;
         private double lastRepaint;
 
+        public Action<Material> beforeRendering;
+
         public ShaderElement()
         {
             AddToClassList("homework-shader-element");
@@ -55,6 +59,7 @@ namespace Heaj.Homework
 
             float time = (float)(EditorApplication.timeSinceStartup % 1000);
             material.SetVector("_TimeParameters", new Vector4(time, 0, 0, 0));
+            beforeRendering?.Invoke(material);
         }
 
         private void OnAttachToPanel(AttachToPanelEvent e)

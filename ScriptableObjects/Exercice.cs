@@ -18,6 +18,8 @@ namespace Heaj.Homework
         public Status status;
         [SerializeField]
         public float entryPriority = 0;
+        [SerializeField]
+        public bool showProperties;
 
 
         [NonSerialized]

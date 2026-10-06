@@ -87,10 +87,15 @@ namespace Heaj.Homework
             //Exercices
             if (entry is Exercice exercice)
             {
+                if (exercice.showProperties)
+                {
+                    Callout callout = shaderArea.Add<Callout>();
+                    callout.AddToClassList("homework-shader-properties-container");
+                    ShaderProperties properties = callout.Add<ShaderProperties>();
+                }
+
                 ShaderExercice shaderExercice = shaderArea.Add<ShaderExercice>();
                 shaderExercice.Bind(exercice);
-
-                //CommentElement comment = shaderArea.Add<CommentElement>();
             }
 
             //Article

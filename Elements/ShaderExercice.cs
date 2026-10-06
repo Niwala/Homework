@@ -17,9 +17,11 @@ namespace Heaj.Homework
         private const int shrinkMargin = 30;
 
         private Exercice exercice;
-        private ShaderSolution shaderSolution;
-        private ShaderUser shaderUser;
+        public ShaderSolution shaderSolution;
+        public ShaderUser shaderUser;
         private ShaderWatcher shaderWatcher;
+
+        private VisualElement absRect;
 
         public ShaderExercice()
         {
@@ -27,6 +29,9 @@ namespace Heaj.Homework
             shaderSolution = this.Add<ShaderSolution>();
             shaderUser = this.Add<ShaderUser>();
             shaderWatcher = this.Add<ShaderWatcher>();
+
+            //absRect = this.Add("abs-rect");
+            //absRect.style.position = Position.Absolute;
 
             this.RegisterCallback<AttachToPanelEvent>(OnAttachToParent);
             this.RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
@@ -43,12 +48,64 @@ namespace Heaj.Homework
         private void OnAttachToParent(AttachToPanelEvent e)
         {
             CheckSize();
+            //AdaptAltContent();
         }
 
         private void OnGeometryChanged(GeometryChangedEvent e)
         {
             CheckSize();
+            //AdaptAltContent();
         }
+
+        //private void AdaptAltContent()
+        //{
+        //    //Adapt abs rect
+        //    Rect solutionRect = this.WorldToLocal(shaderSolution[0].worldBound);
+        //    Rect userRect = this.WorldToLocal(shaderUser[0].worldBound);
+        //    float minX = Mathf.Min(solutionRect.xMin, userRect.xMin);
+        //    float minY = Mathf.Min(solutionRect.yMin, userRect.yMin);
+        //    float maxX = Mathf.Max(solutionRect.xMax, userRect.xMax);
+        //    float maxY = Mathf.Max(solutionRect.yMax, userRect.yMax);
+        //    Rect r = new Rect(minX, minY, maxX - minY, maxY - minY);
+
+        //    absRect.style.left = r.x;
+        //    absRect.style.top = r.y;
+        //    absRect.style.width = r.width;
+        //    absRect.style.height = r.height;
+        //    absRect.style.backgroundColor = new Color(1, 0, 0, 0.1f);
+        //}
+
+        private void FindBestLayout()
+        {
+            Rect rect = contentRect;
+            bool showProperties = (exercice == null) ? false : exercice.showProperties;
+
+            float verticalFit = showProperties ? contentRect.height / 3.0f : contentRect.height / 2.0f;
+            float horizontal = showProperties ? contentRect.width / 3.0f : contentRect.width / 2.0f;
+            float gridFit = showProperties ? Mathf.Min(contentRect.width / 2.0f, contentRect.height / 2.0f) : (verticalFit + horizontal);
+
+            if (verticalFit < horizontal && verticalFit < gridFit)
+            {
+
+            }
+        }
+
+        private void ApplyVerticalFit()
+        {
+
+        }
+
+        private void ApplyHorizontalFit()
+        {
+
+        }
+
+        private void ApplyGridFit()
+        {
+
+        }
+
+
 
         private void CheckSize()
         {
@@ -63,14 +120,16 @@ namespace Heaj.Homework
             if (width < height && horizontal != 2)
             {
                 horizontal = 2;
-                this.style.flexDirection = FlexDirection.Column;
+                style.flexGrow = 1;
+                style.flexDirection = FlexDirection.Column;
                 shaderSolution.style.flexDirection = FlexDirection.Column;
                 shaderUser.style.flexDirection = FlexDirection.Column;
             }
             else if (height < width && horizontal != 1)
             {
                 horizontal = 1;
-                this.style.flexDirection = FlexDirection.Row;
+                style.flexGrow = 0;
+                style.flexDirection = FlexDirection.Row;
                 shaderSolution.style.flexDirection = FlexDirection.Row;
                 shaderUser.style.flexDirection = FlexDirection.Row;
             }
@@ -96,7 +155,7 @@ namespace Heaj.Homework
 
     public abstract class ShaderExercicePart : VisualElement
     {
-        protected ShaderElement shaderElement;
+        public ShaderElement shaderElement;
         protected Button[] buttons;
 
         public ShaderExercicePart()

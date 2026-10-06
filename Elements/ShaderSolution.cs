@@ -11,7 +11,7 @@ namespace Heaj.Homework
     [UxmlElement]
     public partial class ShaderSolution : ShaderExercicePart
     {
-        private Exercice exercice;
+        public Exercice exercice;
 
         protected override int GetButtonCount() => 1;
 
