@@ -1,5 +1,7 @@
 using System.Diagnostics;
 using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using UnityEditor.PackageManager;
@@ -48,6 +50,23 @@ namespace Heaj.Homework
             throw new System.Exception("Homework package not found on the project.");
         }
 
+        public static async Task<bool> PushGitContent(string message)
+        {
+            string directory = await GetPackageDirectory();
+
+            //Increment package version
+            IncrementPackageVersion(directory, out string version);
+            Debug.Log(version);
+
+            //Git push
+            bool success = Push(directory, message);
+            if (success)
+                Debug.Log($"Content pushed (version : {version})");
+            else
+                Debug.LogError($"Push failed (version : {version})");
+            return success;
+        }
+
         public static async Task<string> GetPackageDirectory()
         {
             //List packages
@@ -72,10 +91,42 @@ namespace Heaj.Homework
             throw new System.Exception("Homework package not found on the project.");
         }
 
-        public static async Task<bool> PushGitContent(string message)
+        public static bool IncrementPackageVersion(string packagePath, out string newVersion)
         {
-            string directory = await GetPackageDirectory();
-            return Push(directory, message);
+            Regex versionRegex = new Regex(
+                "(?<prefix>\"version\"\\s*:\\s*\")(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?<suffix>[^\"]*)(?<end>\")");
+
+            newVersion = null;
+
+            string manifestPath = Path.Combine(packagePath, "package.json");
+            if (!File.Exists(manifestPath))
+            {
+                Debug.LogError($"No package.json found at '{manifestPath}'.");
+                return false;
+            }
+
+            string content = File.ReadAllText(manifestPath);
+            Match match = versionRegex.Match(content);
+            if (!match.Success)
+            {
+                Debug.LogError($"No valid version field found in '{manifestPath}'.");
+                return false;
+            }
+
+            int patch = int.Parse(match.Groups["patch"].Value) + 1;
+            string version = $"{match.Groups["major"].Value}.{match.Groups["minor"].Value}.{patch}{match.Groups["suffix"].Value}";
+
+            //Replace only the first occurrence so that dependencies are left untouched
+            string updatedContent = versionRegex.Replace(
+                content,
+                match.Groups["prefix"].Value + version + match.Groups["end"].Value,
+                1);
+
+            File.WriteAllText(manifestPath, updatedContent, new UTF8Encoding(false));
+            //AssetDatabase.Refresh();
+
+            newVersion = version;
+            return true;
         }
 
         private static bool Push(string directory, string message)
