@@ -64,8 +64,10 @@ namespace Heaj.Homework
             if (!VersionIsGreaterOrEqual(packageVersion, metadata.packageVersion))
             {
                 //Package should be updated
-                Debug.Log($"package version is outdated. Update from {packageVersion} to {metadata.packageVersion}.");
+                Debug.Log($"package version is outdated ({packageVersion}). Starting update...");
                 await Package.UpdatePackageFromGit();
+                packageVersion = await Package.GetPackageVersion();
+                Debug.Log($"Package updated (version : {packageVersion})");
             }
 
             //Return

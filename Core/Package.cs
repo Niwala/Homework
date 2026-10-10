@@ -17,7 +17,7 @@ namespace Heaj.Homework
     {
         public const string packageName = "com.heaj.samshomework";
 
-        public static async Task<string> UpdatePackageFromGit()
+        public static async Task UpdatePackageFromGit()
         {
             //List packages
             ListRequest listRequest = Client.List(true, false);
@@ -36,7 +36,7 @@ namespace Heaj.Homework
                     if (package.git == null)
                         throw new System.Exception("Homework package is not a git package.");
 
-                    return package.git.revision;
+                    Client.Add(packageName);
                 }
             }
 
