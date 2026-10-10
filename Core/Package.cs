@@ -36,12 +36,27 @@ namespace Heaj.Homework
                     if (package.git == null)
                         throw new System.Exception("Homework package is not a git package.");
 
-                    Client.Add(packageName);
+                    AddRequest addRequest = Client.Add(packageName);
+                    while (!addRequest.IsCompleted)
+                    {
+                        await Task.Delay(16);
+                    }
+                    
+                    if (addRequest.Status == StatusCode.Success)
+                    {
+                        string packageVersion = await Package.GetPackageVersion();
+                        Debug.Log($"Package updated (version : {packageVersion})");
+                    }
+                    else
+                    {
+                        Debug.LogError("Updated failed : " + addRequest.Error);
+                    }
+
+                    return;
                 }
             }
 
-            //Not found error
-            throw new System.Exception("Homework package not found on the project.");
+            throw new System.Exception("Homework package not found.");
         }
 
         public static async Task<string> GetPackageVersion()

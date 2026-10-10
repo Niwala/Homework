@@ -66,8 +66,6 @@ namespace Heaj.Homework
                 //Package should be updated
                 Debug.Log($"package version is outdated ({packageVersion}). Starting update...");
                 await Package.UpdatePackageFromGit();
-                packageVersion = await Package.GetPackageVersion();
-                Debug.Log($"Package updated (version : {packageVersion})");
             }
 
             //Return
