@@ -7,7 +7,6 @@ using UnityEditor;
 
 namespace Heaj.Homework
 {
-
     public class PasswordPopup : EditorWindow
     {
         private TextField textField;

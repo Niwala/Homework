@@ -30,10 +30,16 @@ namespace Heaj.Homework
             refreshButton.text = "Refresh";
             refreshButton.clicked += State.Refresh;
 
+            //Push button
+            ToolbarButton pushBtn = toolbar.Add<ToolbarButton>();
+            pushBtn.AddManipulator(new EditModeManipulator());
+            pushBtn.text = "Push content";
+            pushBtn.clicked += PushContent;
+
             //Export button
             ToolbarButton exportBtn = toolbar.Add<ToolbarButton>();
             exportBtn.AddManipulator(new EditModeManipulator());
-            exportBtn.text = "Export";
+            exportBtn.text = "Export metadata";
             exportBtn.clicked += Export;
 
             //Space
@@ -86,6 +92,11 @@ namespace Heaj.Homework
             entries = Database.Resources.outlinerData.BuildEntries();
             treeView.SetRootItems(entries);
             treeView.Rebuild();
+        }
+
+        private void PushContent()
+        {
+            PushPopup.Open((string msg) => Package.PushGitContent(msg));
         }
 
         private void Export()

@@ -7,6 +7,9 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Networking;
 
+using UnityEditor.PackageManager.Requests;
+using UnityEditor.PackageManager;
+
 namespace Heaj.Homework
 {
     public static class Updater
@@ -39,6 +42,11 @@ namespace Heaj.Homework
 
         public static async Task<MetaDataPack> Read()
         {
+            //Update package
+            string revision = await Package.GetLastGitCommit();
+            //search = Client.List(true, false);// Client.Search("com.heaj.samshomework", true);
+            //EditorApplication.update += PackageManagerUpdate;
+
             using (UnityWebRequest request = UnityWebRequest.Get(baseUrl + binId))
             {
                 request.SetRequestHeader("X-Access-Key", publicKey);

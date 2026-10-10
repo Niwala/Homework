@@ -1,12 +1,15 @@
 using System;
 using System.Collections.Generic;
 
+using UnityEditor.PackageManager;
+
 namespace Heaj.Homework
 {
     [Serializable]
     public class MetaDataPack
     {
         public string timeStamp;
+        public string lastGitCommit;
         public List<MetaData> entries = new List<MetaData>();
 
         public void Init()
