@@ -9,7 +9,7 @@ namespace Heaj.Homework
     public class MetaDataPack
     {
         public string timeStamp;
-        public string lastGitCommit;
+        public string packageVersion;
         public List<MetaData> entries = new List<MetaData>();
 
         public void Init()

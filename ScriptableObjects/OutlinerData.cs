@@ -118,25 +118,6 @@ namespace Heaj.Homework
             return true;
         }
 
-        public void ExportMetaData()
-        {
-            PasswordPopup.Open(OnReceivePassword);
-
-            async void OnReceivePassword(string password)
-            {
-                if (string.IsNullOrEmpty(password))
-                    return;
-
-                UserData.Metadata.timeStamp = DateTime.Now.ToString();
-                (bool error, string errorMsg) = await Updater.UpdateFlagsAsync(password, UserData.Metadata);
-
-                if (error)
-                    Debug.LogError(errorMsg);
-                else
-                    Debug.Log("Meta data exported");
-            }
-        }
-
         private void MarkReadOnly(UnityEngine.Object obj, bool readOnly)
         {
             if (obj == null)

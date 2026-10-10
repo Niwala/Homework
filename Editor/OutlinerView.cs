@@ -96,12 +96,37 @@ namespace Heaj.Homework
 
         private void PushContent()
         {
-            PushPopup.Open((string msg) => Package.PushGitContent(msg));
+            PushPopup.Open(OnReceiveMessage);
+
+            async void OnReceiveMessage(string gitMessage)
+            {
+                (bool success, string newPackageVersion) = await Package.PushPackageToGit(gitMessage);
+
+                if (success)
+                    Debug.Log($"Content pushed (version : {newPackageVersion})");
+                else
+                    Debug.LogError($"Push failed (version : {newPackageVersion})");
+            }
         }
 
-        private void Export()
+        private async void Export()
         {
-            Database.Resources.outlinerData.ExportMetaData();
+            PasswordPopup.Open(OnReceivePassword);
+
+            async void OnReceivePassword(string password)
+            {
+                if (string.IsNullOrEmpty(password))
+                    return;
+
+                UserData.Metadata.timeStamp = DateTime.Now.ToString();
+                UserData.Metadata.packageVersion = await Package.GetPackageVersion();
+                (bool error, string errorMsg) = await Updater.UpdateFlagsAsync(password, UserData.Metadata);
+
+                if (error)
+                    Debug.LogError(errorMsg);
+                else
+                    Debug.Log($"Meta data exported (version : {UserData.Metadata.packageVersion})");
+            }
         }
     }
 }

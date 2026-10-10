@@ -42,23 +42,51 @@ namespace Heaj.Homework
 
         public static async Task<MetaDataPack> Read()
         {
-            //Update package
-            string revision = await Package.GetLastGitCommit();
-            //search = Client.List(true, false);// Client.Search("com.heaj.samshomework", true);
-            //EditorApplication.update += PackageManagerUpdate;
-
+            //Get metadata pack
+            MetaDataPack metadata = null;
             using (UnityWebRequest request = UnityWebRequest.Get(baseUrl + binId))
             {
                 request.SetRequestHeader("X-Access-Key", publicKey);
 
                 await request.SendWebRequest();
 
-                if (request.result != UnityWebRequest.Result.Success)
-                    return null;
-
-                ReadResponse response = JsonUtility.FromJson<ReadResponse>(request.downloadHandler.text);
-                return response.record;
+                if (request.result == UnityWebRequest.Result.Success)
+                {
+                    ReadResponse response = JsonUtility.FromJson<ReadResponse>(request.downloadHandler.text);
+                    metadata = response.record;
+                }
             }
+
+            //Read current package version
+            string packageVersion = await Package.GetPackageVersion();
+
+            //Compare package version
+            if (!VersionIsGreaterOrEqual(packageVersion, metadata.packageVersion))
+            {
+                //Package should be updated
+                Debug.Log($"package version is outdated. Update from {packageVersion} to {metadata.packageVersion}.");
+                await Package.UpdatePackageFromGit();
+            }
+
+            //Return
+            return metadata;
+        }
+
+        public static bool VersionIsGreaterOrEqual(string versionA, string versionB)
+        {
+            //Drop the build metadata, then split the core version from the pre-release tag
+            string[] a = versionA.Split('+')[0].Split('-', 2);
+            string[] b = versionB.Split('+')[0].Split('-', 2);
+
+            int coreComparison = new Version(a[0]).CompareTo(new Version(b[0]));
+            if (coreComparison != 0)
+                return coreComparison > 0;
+
+            //A release without a pre-release tag is greater than the same one with a tag
+            if (a.Length != b.Length)
+                return a.Length < b.Length;
+
+            return a.Length == 1 || string.CompareOrdinal(a[1], b[1]) >= 0;
         }
 
         public static async Task<(bool error, string errorMsg)> UpdateFlagsAsync(string code, MetaDataPack flags)

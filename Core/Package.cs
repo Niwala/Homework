@@ -17,7 +17,7 @@ namespace Heaj.Homework
     {
         public const string packageName = "com.heaj.samshomework";
 
-        public static async Task<string> GetLastGitCommit()
+        public static async Task<string> UpdatePackageFromGit()
         {
             //List packages
             ListRequest listRequest = Client.List(true, false);
@@ -33,14 +33,8 @@ namespace Heaj.Homework
             {
                 if (package.name == packageName)
                 {
-                    Debug.Log(package.packageId);
-                    Debug.Log(package.assetPath);
-
                     if (package.git == null)
                         throw new System.Exception("Homework package is not a git package.");
-
-                    Debug.Log(package.git.revision);
-                    Debug.Log(package.datePublished);
 
                     return package.git.revision;
                 }
@@ -50,21 +44,45 @@ namespace Heaj.Homework
             throw new System.Exception("Homework package not found on the project.");
         }
 
-        public static async Task<bool> PushGitContent(string message)
+        public static async Task<string> GetPackageVersion()
+        {
+            string directory = await GetPackageDirectory();
+            return GetPackageVersion(directory);
+        }
+
+        public static string GetPackageVersion(string packagePath)
+        {
+            Regex versionRegex = new Regex(
+                "(?<prefix>\"version\"\\s*:\\s*\")(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?<suffix>[^\"]*)(?<end>\")");
+
+            string manifestPath = Path.Combine(packagePath, "package.json");
+            if (!File.Exists(manifestPath))
+            {
+                Debug.LogError($"No package.json found at '{manifestPath}'.");
+                return null;
+            }
+
+            string content = File.ReadAllText(manifestPath);
+            Match match = versionRegex.Match(content);
+            if (!match.Success)
+            {
+                Debug.LogError($"No valid version field found in '{manifestPath}'.");
+                return null;
+            }
+
+            int patch = int.Parse(match.Groups["patch"].Value);
+            return $"{match.Groups["major"].Value}.{match.Groups["minor"].Value}.{patch}{match.Groups["suffix"].Value}";
+        }
+
+        public static async Task<(bool, string)> PushPackageToGit(string message)
         {
             string directory = await GetPackageDirectory();
 
             //Increment package version
-            IncrementPackageVersion(directory, out string version);
-            Debug.Log(version);
+            IncrementPackageVersion(directory, out string newPackageVersion);
 
             //Git push
-            bool success = Push(directory, message);
-            if (success)
-                Debug.Log($"Content pushed (version : {version})");
-            else
-                Debug.LogError($"Push failed (version : {version})");
-            return success;
+            return (Push(directory, message), newPackageVersion);
         }
 
         public static async Task<string> GetPackageDirectory()
@@ -91,7 +109,7 @@ namespace Heaj.Homework
             throw new System.Exception("Homework package not found on the project.");
         }
 
-        public static bool IncrementPackageVersion(string packagePath, out string newVersion)
+        private static bool IncrementPackageVersion(string packagePath, out string newVersion)
         {
             Regex versionRegex = new Regex(
                 "(?<prefix>\"version\"\\s*:\\s*\")(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)(?<suffix>[^\"]*)(?<end>\")");
