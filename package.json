@@ -1,6 +1,6 @@
 {
   "name": "com.heaj.samshomework",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "displayName": "Sam's Homework",
   "description": "Contains the exercises from the Shader Development course at the Haute Ecole Albert Jacquard in Namur, Belgium.",
   "unity": "6000.3",

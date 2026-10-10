@@ -36,7 +36,9 @@ namespace Heaj.Homework
                     if (package.git == null)
                         throw new System.Exception("Homework package is not a git package.");
 
-                    AddRequest addRequest = Client.Add(packageName);
+                    string gitUrl = package.packageId.Substring(package.name.Length + 1);
+                    AddRequest addRequest = Client.Add(gitUrl);
+
                     while (!addRequest.IsCompleted)
                     {
                         await Task.Delay(16);
