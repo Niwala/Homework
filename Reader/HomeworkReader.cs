@@ -24,12 +24,14 @@ namespace Heaj.Homework
         public List<HomeworkFile> files = new List<HomeworkFile>();
 
 
+#if HOMEWORK_EDIT
         [MenuItem("Window/Homework reader")]
         public static void Open()
         {
             HomeworkReader window = EditorWindow.GetWindow<HomeworkReader>();
             window.Show();
         }
+#endif
 
         private void OnEnable()
         {

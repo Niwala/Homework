@@ -8,6 +8,7 @@ namespace Heaj.Homework
         {
             target.RegisterCallback<AttachToPanelEvent>(OnAttachToPanel);
             target.RegisterCallback<DetachFromPanelEvent>(OnDetachFromPanel);
+            OnEditModeChanged();
         }
 
         protected override void UnregisterCallbacksFromTarget()

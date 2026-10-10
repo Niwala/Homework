@@ -109,7 +109,7 @@ namespace Heaj.Homework
             }
         }
 
-        private async void Export()
+        private void Export()
         {
             PasswordPopup.Open(OnReceivePassword);
 

@@ -11,7 +11,7 @@ namespace Heaj.Homework
         private VisualElement icon;
 
         private IOutlinerEntry entry;
-        private IOutlinerEntry parent;
+        private new IOutlinerEntry parent;
 
         public OutlinerItem()
         {
