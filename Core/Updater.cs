@@ -23,7 +23,7 @@ namespace Heaj.Homework
         private const string tokenEnd = "9N8u9JJDIhjWdjrnkLeJvYZnaypY5qy6ecbsvEkVkyCBNL5XQFBP2tDt";
         private static string Token => tokenStart + tokenEnd;
 
-        private static async Task<MetaDataPack> ReadGithub()
+        private static async Task<MetaDataPack> ReadMetadataFromGithub()
         {
             MetaDataPack metadata = null;
             using (UnityWebRequest request = UnityWebRequest.Get(fileReadUrl))
@@ -32,9 +32,7 @@ namespace Heaj.Homework
 
                 if (request.result == UnityWebRequest.Result.Success)
                 {
-                    Debug.Log(request.downloadHandler.text);
-                    MetaDataPack response = JsonUtility.FromJson<MetaDataPack>(request.downloadHandler.text);
-                    Debug.Log(response);
+                    metadata = JsonUtility.FromJson<MetaDataPack>(request.downloadHandler.text);
                 }
                 else
                 {
@@ -48,9 +46,7 @@ namespace Heaj.Homework
         public static async Task<MetaDataPack> Read()
         {
             //Get metadata pack from github
-            MetaDataPack metadata = await ReadGithub();
-            Debug.Log(metadata);
-            Debug.Log(metadata.packageVersion);
+            MetaDataPack metadata = await ReadMetadataFromGithub();
 
             //Read current package version
             string packageVersion = await Package.GetPackageVersion();
