@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.heaj.samshomework/Styles/Styles.uss?fileID=7433441132597879392&amp;guid=6528a26abad5e92429833d3a7cb12172&amp;type=3"/>
+    <Heaj.Homework.ArticleElement>
+        <Heaj.Homework.Title text="Distance"/>
+        <Heaj.Homework.Title text="Description" type="1"/>
+        <Heaj.Homework.Text text="Permet de calculer la distance entre 2 points.&#10;La distance est souvent utilisée pour obtenir une forme radiale autour d&apos;un point."/>
+        <Heaj.Homework.ShaderElement shader="project://database/Packages/com.heaj.samshomework/Data/04%20Distance/Distance.shadergraph?fileID=-6465566751694194690&amp;guid=d14d7a9ebb37867428f7cb416402ef57&amp;type=3#Shader Graphs/Distance" style="width: 200px; height: 200px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;"/>
+    </Heaj.Homework.ArticleElement>
+</ui:UXML>
